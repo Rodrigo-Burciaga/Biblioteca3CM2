@@ -1,0 +1,342 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Componente: cdtBook.sty                               
+%  Autor: Ulises Vélez Saldaña
+%  Fecha: 27 de Julio, 2012
+%  Versión: 1.0
+%  Biblioteca: cdt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cdtBook}[2012/07/27, v2.0 CDT-ESCOM-IPN Plantilla para reportes de la Coordinación]
+\RequirePackage{cdt/cdtTheme}
+\RequirePackage{longtable}
+\RequirePackage{colortbl}
+\RequirePackage{multirow}
+
+%=====================================================
+% Definición de columnas para datos tabulares
+%=====================================================
+
+% Renglón con fondo color agua y texto centrado
+\newcolumntype{h}{>{\columncolor{colorAgua}}c}
+
+%=====================================================
+% Comando: \Sistema{Nombre del sistema}
+%=====================================================
+\newcommand{\varSistema}{}
+\newcommand{\sistema}[1]{\renewcommand{\varSistema}{{#1}}}
+
+
+%=====================================================
+% Comando: \title{Titulo del documento}
+%=====================================================
+\newcommand{\varTitle}[1]{}
+\let\varTitle=\title
+\newcommand{\varSubTitle}{}
+\renewcommand{\title}[1]{%	
+	\varTitle{%
+		{\Huge\color{colorPrincipal}{#1}}%
+		\\ {\LARGE \color{colorSecundario}\varSubTitle~{}%
+			\bigskip\\\color{colorPrincipal}%
+		}
+	\rule{\textwidth}{1mm}%
+	}%
+}
+
+%=====================================================
+% Comando: \subtitle{Subtitulo del documento}
+%=====================================================
+\newcommand{\subtitle}[1]{\renewcommand{\varSubTitle}{{#1}}}
+
+
+%=====================================================
+% Comando: \organizacion{Nombre de la contraparte}
+%=====================================================
+\newcommand{\varOrganizacion}{Defina el nombre de la Contraparte}
+\newcommand{\organizacion}[1]{\renewcommand{\varOrganizacion}{{#1}}}
+
+
+%=====================================================
+% Comando: \author{Nombre del autor}
+%=====================================================
+\newcommand{\varAuthor}[1]{Escuela Superior de Cómputo, IPN}
+\let\varAuthor=\author
+\renewcommand{\author}[1]{%
+	\varAuthor{\color{colorSecundario}{{#1}}\\ {\color{colorGris}{\varOrganizacion}}}%
+}
+
+
+%=====================================================
+% Comando: \proyecto[CVE]{Nombre del proyecto}
+%=====================================================
+\newcommand{\varProyecto}{Defina el Nombre del Proyecto}
+\newcommand{\varCveProyecto}{Sin Clave}
+\newcommand{\proyecto}[2][]{\renewcommand{\varCveProyecto}{{#1}}\renewcommand{\varProyecto}{{#2}}}
+
+
+%=====================================================
+% Comando: \documento[Etapa][Alcance]{clave}{Nombre del documento}{Versión}
+%=====================================================
+\newcommand{\varEtapaProy}{}
+\newcommand{\varUsoProy}{}
+\newcommand{\varCveDocumento}{}
+\newcommand{\varDocumento}{}
+\newcommand{\varDocVersion}{}
+\newcommand{\documento}[5]{%
+	\renewcommand{\varEtapaProy}{{#1}}%
+	\renewcommand{\varUsoProy}{{#2}}%
+	\renewcommand{\varCveDocumento}{{#3}}%
+	\renewcommand{\varDocumento}{{#4}}%
+	\renewcommand{\varDocVersion}{{#5}}
+}
+
+
+%=====================================================
+% Comando: \docFecha{Fecha del documento}
+%=====================================================
+\newcommand{\varFecha}{\today}
+\newcommand{\fecha}[1]{\renewcommand{\varFecha}{{#1}}\date{{#1}}}
+
+
+%=====================================================
+% Comando: \makeDocInfo
+%=====================================================
+\newcommand{\makeDocInfo}{%
+	\cleardoublepage%
+	\noindent\begin{tabular}{| p{.1\textwidth} | p{.5\textwidth} | p{.15\textwidth} | p{.15\textwidth}|}%
+	 	\hline	%
+		\multicolumn{4}{|h|}{\bf Proyecto}\\%
+		\hline%
+		{\bf Clave} & {\bf Nombre} & {\bf Etapa} & {\bf Uso} \\%
+		\hline	%
+		\varCveProyecto & \varProyecto & \varEtapaProy & \varUsoProy \\%
+		\hline%
+	\end{tabular}%
+	\bigskip\\%
+	%
+	\noindent\begin{tabular}{| p{.18\textwidth} | p{.4\textwidth} | p{.09\textwidth} | p{.23\textwidth}|}%
+	 	\hline%
+		\multicolumn{4}{|h|}{\bf Documento}\\%
+	 	\hline%
+		{\bf Clave} & {\bf Nombre} & {\bf Versión} & {\bf Fecha} \\%
+		\hline%
+		\varCveDocumento & \varDocumento & \varDocVersion & \varFecha \\%
+		\hline%
+	\end{tabular}%
+	\renewcommand{\tablename}{Tabla}%
+	\renewcommand{\listtablename}{Índice de tablas}%
+}
+
+%=====================================================
+% Comando: \elemRefs{
+%               \elemItem{cveDoc}{verDoc}{Nombre del Documento}
+%               \elemItem{cveDoc}{verDoc}{Nombre del Documento}
+%               \elemItem{cveDoc}{verDoc}{Nombre del Documento}
+%               ...
+%           }
+% Se usa para hacer una lista de los elementos contenidos en el documento.
+%=====================================================
+\newcommand{\varElemRefs}{}
+\newcommand{\elemRefs}[1]{\renewcommand{\varElemRefs}{#1}
+}
+
+%=====================================================
+% Comando: \elemItem{id}{ver}{nombre}
+%=====================================================
+\newcommand{\elemItem}[3]{{#1} & {#2} & {#3} & \\\hline}
+
+%=====================================================
+% Comando: \makeElemRefs
+% Describe un elemento.
+%=====================================================
+\newcommand{\makeElemRefs}{
+	\noindent\begin{longtable}{| p{.15\textwidth} | p{.1\textwidth} | p{.5\textwidth} |p{.15\textwidth}|}%
+	 	\hline%
+		\multicolumn{4}{|h|}{\bf Elementos entregados}\\%
+	 	\hline%
+		{\bf Clave} & {\bf Ver.} & {\bf Nombre} & {\bf Aprobado}\\%5
+		\hline\endhead%
+		\varElemRefs%
+	\end{longtable}%
+	%
+}
+
+%=====================================================
+% Comando: \docRefs{
+%               \docItem{cveDoc}{verDoc}{Nombre del Documento}
+%               \docItem{cveDoc}{verDoc}{Nombre del Documento}
+%               \docItem{cveDoc}{verDoc}{Nombre del Documento}
+%               ...
+%           }
+% Se usa para hacer una lista de los documentos reverenciados por el documento.
+%=====================================================
+\newcommand{\varDocRefs}{}
+\newcommand{\docRefs}[1]{\renewcommand{\varDocRefs}{#1}
+}
+
+%=====================================================
+% Comando: \docItem{id}{ver}{nombre}
+%=====================================================
+\newcommand{\docItem}[3]{{#1} & {#2} & {#3}\\\hline}
+
+%=====================================================
+% Comando: \makeDocRefs
+%=====================================================
+\newcommand{\makeDocRefs}{
+	\noindent\begin{tabular}{| p{.23\textwidth} | p{.1\textwidth} | p{.6\textwidth} |}%
+	 	\hline%
+		\multicolumn{3}{|h|}{\bf Documentos Relacionados}\\%
+	 	\hline%
+		{\bf Clave} & {\bf Versión} & {\bf Nombre}\\%5
+		\hline%
+		\varDocRefs%
+	\end{tabular}%
+	%
+}
+
+
+%=====================================================
+% Comando: \elaboro[Cargo]{Nombre}
+%=====================================================
+\newcommand{\varElaboro}{}
+\newcommand{\varElaboroCar}{}
+\newcommand{\elaboro}[2][]{\renewcommand{\varElaboroCar}{#1}\renewcommand{\varElaboro}{#2}}
+
+%=====================================================
+% Comando: \superviso[Cargo]{Nombre}
+%=====================================================
+\newcommand{\varSuperviso}{}
+\newcommand{\varSupervisoCar}{}
+\newcommand{\superviso}[2][]{\renewcommand{\varSupervisoCar}{#1}\renewcommand{\varSuperviso}{#2}}
+
+%=====================================================
+% Comando: \aprobo[Cargo]{Nombre}
+%=====================================================
+\newcommand{\varAprobo}{}
+\newcommand{\varAproboCar}{}
+\newcommand{\aprobo}[2][]{\renewcommand{\varAproboCar}{#1}\renewcommand{\varAprobo}{#2}}
+
+%=====================================================
+% Comando: \makeObservaciones
+% Crea un espacio para escribir observaciones sobre el documento
+%=====================================================
+\newcommand{\makeObservaciones}[1][10cm]{
+	\noindent\begin{longtable}{| p{.98\textwidth}|}%
+	 	\hline%
+		\multicolumn{1}{|h|}{\bf Observaciones}\\%
+	 	\hline%
+		\vspace{#1}\\%5
+		\hline\endhead%
+	\end{longtable}%
+	%
+}
+
+
+\newcommand{\makeFirmas}{
+	\noindent\begin{tabular}{|c p{.255\textwidth} c|c p{.255\textwidth} c | c p{.255\textwidth} c|}%
+	 	\hline%
+		\multicolumn{9}{|h|}{\bf Firmas}\\%
+		\hline%
+		& \begin{center}\bf Responsable\end{center} & & & \begin{center}\bf Supervisó\end{center} & & & \begin{center}\bf Aprobó\end{center} & \\%
+		&&&&&&&& \\%
+		&&&&&&&& \\%
+		&&&&&&&& \\%
+		\cline{2-2} \cline{5-5} \cline{8-8}	%
+		& \centering \varElaboro & & & \centering \varSuperviso & & & \centering \varAprobo & \\%
+		& \centering \varElaboroCar & & & \centering \varSupervisoCar & & & \centering \varAproboCar & \\%
+		\hline%
+	\end{tabular}%
+}
+
+
+
+%=====================================================
+%% Ambiente: 
+%   \begin{objetivos}
+%       \item Objetivo 1
+%       \item Objetivo 2
+%       \item Objetivo 3
+%       \item ...
+%   \end{objetivo}
+%=====================================================
+\newenvironment{objetivos}[1][Objetivos de este capítulo:]{%
+	\arrayrulecolor{colorPrincipal}%
+	\indent\begin{tabular}{|p{.9\textwidth}|}%
+	\hline\rowcolor{colorAgua}%
+	{\bf\large\color{colorPrincipal} {#1}}\begin{itemize}}%
+{%
+	%
+	\end{itemize}\\\hline%
+	\end{tabular}%
+}
+
+%=====================================================
+%% Ambiente: 
+%   \begin{objetivosDoc}
+%       \item Objetivo 1
+%       \item Objetivo 2
+%       \item Objetivo 3
+%       \item ...
+%   \end{objetivo}
+%=====================================================
+\newenvironment{objetivosDoc}[1][Objetivos:]{%
+	\arrayrulecolor{colorPrincipal}%
+	\indent\begin{tabular}{|p{.9\textwidth}|}%
+	\hline\rowcolor{colorAgua}%
+	{\bf\large\color{colorPrincipal} {#1}}\begin{itemize}}%
+{%
+	%
+	\end{itemize}\\\hline%
+	\end{tabular}%
+}
+
+%=====================================================
+% Comando: \instrucciones{Escriba las instrucciones sobre el llenado de alguna sección, campo o contenido.}
+%=====================================================
+\newcommand{\instrucciones}[1]{}
+\newcommand{\varInstrucciones}[1]{{\small\em\color{colorGris}#1}}
+
+%=====================================================
+% Comando: \showInstrucciones
+%=====================================================
+\newcommand{\showInstrucciones}{%
+	\let\instrucciones=\varInstrucciones%
+}
+
+
+%=====================================================
+% Ambiente: Citemize
+%=====================================================
+\newenvironment{Citemize}%
+{%
+	\begin{itemize}\addtolength{\itemsep}{-0.45\baselineskip}%
+}{%
+	\end{itemize}%
+}%
+
+%=====================================================
+% Ambiente: Cdescription
+%=====================================================
+\newenvironment{Cdescription}%
+{%
+	\begin{description}\addtolength{\itemsep}{-0.45\baselineskip}%
+}{%
+	\end{description}%
+}%
+
+
+\newcommand{\clossing}{
+	\chapter*{{\huge Instituto Politécnico Nacional}\bigskip\\{\Large\color{colorSecundario}Escuela Superior de Cómputo}\bigskip\\{\large\color{colorPrincipal}Coordinación de Desarrollo Tecnológico}}
+	
+	\noindent{\bf Coordinador de Desarrollo Tecnológico}
+	\begin{itemize}
+		\item[{\color{colorPrincipal}\Gentsroom}] José Jaime López Rabadán.
+		\item[{\color{colorPrincipal}\Mobilefone}] (044)--55--3227-9975.
+		\item[{\color{colorPrincipal}\Telefon}] 57296000 Ext. 5004.
+		\item[{\color{colorPrincipal}\Letter}] \url{cdt.escom@gmail.com}.
+	\end{itemize}
+	\bigskip
+	
+	
+}
+
+

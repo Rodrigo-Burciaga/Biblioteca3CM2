@@ -1,0 +1,164 @@
+%========================================================
+%Proceso
+%========================================================
+
+%========================================================
+% Descripción general del proceso
+%-----------------------------------------------
+\begin{Proceso}{P0.1}{Solicitud de cuenta} {
+  
+  %-------------------------------------------
+  %Resumen
+
+  Proceso que realiza el \cdtRef{Actor:Aspirante}{Aspirante} como primer paso para obtener una cuenta activa de usuario en el \cdtRef{Actor:SAEV2.0}{SAEV2.0}, y así poder iniciar el proceso de admisión a alguna de las opciones de posgrado que la escuela ofrece.
+  
+  Si el periodo de registro se encuentra vigente, el sistema permite al \cdtRef{Actor:Aspirante}{Aspirante} ingresar la información necesaria para obtener el correo de activación de su cuenta, de lo contrario le notifica que se encuentra fuera de dicho periodo y por lo tanto no se puede generar su cuenta en el sistema. Cuando procede la solicitud de cuenta, el sistema verifica ahora si la información proporocionada es correcta, de no ser el caso, se notifica que existen errores en la información para que se realicen las correcciones pertinentes antes de su envío.
+
+  Una vez que la información es enviada correctamente, el \cdtRef{Actor:SAEV2.0}{SAEV2.0} debe asegurarse de que el \cdtRef{Actor:Aspirante}{Aspirante} no se encuentra previamente registrado como \cdtRef{Actor:Aspirante}{Aspirante} con cuanta activa o como \cdtRef{Actor:Alumno}{Alumno} activo o en baja (ya sea académica, voluntario o definitiva), pues de darse alguno de estos casos, el sistema notifica que la solicitud de cuenta no procede, explicando los motivos. Si no se da alguno de los casos anteriores, el sistema termina el proceso de solicitud de cuenta realizando el envío de un correco electrónico que permitirá la activación de la cuenta de usuario generada.
+
+  %-------------------------------------------
+  %Diagrama del proceso
+
+  \noindent La Figura \cdtRefImg{P0.1}{Solicitud de cuenta} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+
+  \Pfig[0.95]{./procesos/Ejemplo/Images/PA2_1-SolicitudDeCuenta.png}{P0.1}{Solicitud de cuenta}
+
+} {P0.1:Cuenta}
+
+  %-------------------------------------------
+  %Elementos del proceso
+
+  \UCitem{Actores} { %Actores
+    \cdtRef{Actor:Aspirante}{Aspirante} y \cdtRef{Actor:SAEV2.0}{SAEV2.0}.
+  }
+
+  \UCitem{Objetivo} { %Objetivo
+    Generar una cuenta de usuario sin activar y el correo de activación de la misma.
+  }
+
+  \UCitem{Insumos de entrada} { %Insumos de entrada
+  	\begin{UClist}
+  		\UCli Datos del formulario \cdtIdRef{F1}{Generación de cuenta}
+     	\UCli  \cdtIdRef{D0.1}{Credencial de Estudiante}.
+    \end {UClist}
+  }
+  
+  \UCitem{Proveedores} { %Proveedores
+    \cdtRef{Actor:Aspirante}{Aspirante}
+  }
+
+  \UCitem{Productos de salida} { %Productos de salida
+    \begin{UClist}
+      \UCli Notificación \cdtIdRef{MSJ0.1}{Solicitud fuera de periodo de registro}.
+      \UCli Notificación \cdtIdRef{MSJ0.2}{Operacion Exitosa}.
+    \end{UClist}
+  }
+
+  \UCitem{Cliente} { %Cliente
+    \cdtRef{Actor:Aspirante}{Aspirante}
+  }
+
+  \UCitem{Mecanismo de medición} { %Mecanismo de medición
+    \begin{UClist}
+      \UCli Un día hábil  de asignación
+      \UCli Cuatro días  hábiles de evaluación
+    \end{UClist}
+  }
+  \UCitem{Interrelación con otros procesos} { %Interrelación con otros procesos
+    \cdtIdRef{P0.1}{Solicitud de cuenta}
+  }
+
+
+\end{Proceso}
+
+%========================================================
+%Descripción de tareas
+%-----------------------------------------------
+\begin{PDescripcion}
+
+  %Actor: Aspirante
+  \Ppaso Aspirante
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P0.1:Aspirante}{Solicita cuenta de usuario.} Para obtener una cuenta de usuario en el \cdtRef{Actor:SAEV2.0}{SAEV2.0}, ésta debe solicitarse durante el periodo de registro de aspirantes mostrando la \cdtIdRef{D0.1}{Credencial de Estudiante}. Una vez realizada la solicitud, se espera a que suceda uno de los siguientes eventos:
+
+	%Eventos
+	\begin{itemize}
+	  %Evento 1
+	  \item Se autoriza la generación de cuenta. Si el \cdtRef{Actor:SAEV2.0}{SAEV2.0} determina que la solicitud esta dentro del periodo de registro, autoriza la generación de la cuenta y se puede pasar a la tarea \cdtRefTask{T2-P0.1:Aspirante}{Ingresa información}, para iniciar la creación de la cuenta en el sistema.
+	  %Evento 2
+	  \item Recibe notificación de solicitud fuera de periodo. Si el \cdtRef{Actor:SAEV2.0}{SAEV2.0} determina que la solicitud esta fuera del periodo de registro, se recibe la notificación \cdtIdRef{MSJ0.1}{Solicitud fuera de periodo de registro}, la cual indica que no puede proceder la solicitud.
+	\end{itemize}
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P0.1:Aspirante}{Ingresa información.} Proporciona los datos  especificados en el formulario \cdtIdRef{F1}{Generación de cuenta}, y una vez que envía la información al \cdtRef{Actor:SAEV2.0}{SAEV2.0}, queda a la espera de que suceda alguno de los siguientes eventos:
+
+	%Eventos
+	\begin{itemize}
+	  %Evento 1
+	  \item Recibe notificación de error en la información. Indica que la información proporcionada al sistema no puede ser registrada, y los detalles se especifican en la notificación \cdtIdRef{NS2}{Información errónea} enviada por el \cdtRef{Actor:SAEV2.0}{SAEV2.0}. Para realizar los ajustes correspondientes, pasa a la tarea \cdtRefTask{T2-P0.1:Aspirante}{Ingresa información}.
+	  %Evento 2
+	  \item Recibe notificación de cuenta denegada por baja. Indica que la solicitud de cuenta es denegada, debido a que la información ingresada corresponde a un \cdtRef{Actor:Alumno}{Alumno} dado de baja ya sea académica, voluntaria o definitiva, y el proceso termina. Lo anterior se especifica en la notificación \cdtIdRef{NS3}{Cuenta denegada por baja}, enviada por el \cdtRef{Actor:SAEV2.0}{SAEV2.0}.
+	  %Evento 3
+	  \item Recibe notificación de cuenta con activación inhabilitada. Indica que ya se tiene una cuenta registrada y que su activación ha sido inhabilitada, por lo que es necesario que pase al proceso \cdtIdRef{P0.1}{Activación de cuenta} para poder activarla, y el proceso termina. Lo anterior se detalla en la notificación \cdtIdRef{NS4}{Cuenta con activación inhabilitada} enviada por el \cdtRef{Actor:SAEV2.0}{SAEV2.0}.
+	  %Evento 4
+	  \item Recibe notificación de cuenta por activar. Indica que ya se tiene una cuenta registrada y que necesita ser activada, por lo que es necesario que pase al proceso \cdtIdRef{P0.1}{Activación de cuenta} para poder activarla, y el proceso termina. Lo anterior se detalla en la notificación \cdtIdRef{NS5}{Cuenta por activar} enviada por el \cdtRef{Actor:SAEV2.0}{SAEV2.0}.
+	  %Evento 5
+	  \item Recibe notificación de cuenta previa existente. Indica que ya se tiene una cuenta activa en el sistema ya sea como \cdtRef{Actor:Aspirante}{Aspirante} o como \cdtRef{Actor:Alumno}{Alumno}, por lo que la solicitud de cuenta no procede y el proceso termina. Lo anterior se detalla en la notificación \cdtIdRef{NS6}{Cuenta previa activada} enviada por el \cdtRef{Actor:SAEV2.0}{SAEV2.0}.
+	  %Evento 6
+	  \item Recibe notificación de solicitud de activación de cuenta. Indica que el sistema ha creado la cuenta, la cual necesita ser activada para poder ser utilizada. Para realizar dicha activación, se recibe vía correo electrónico la notificación \cdtIdRef{NS7}{Activación de cuenta} por parte del \cdtRef{Actor:SAEV2.0}{SAEV2.0}. El proceso termina exitósamente y se puede activar la cuenta en el proceso \cdtIdRef{P0.1}{Activación de cuenta}.
+	\end{itemize}
+
+    \end{enumerate}
+
+  %Actor: SAEV2.0
+  \Ppaso SAEV2.0
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P0.1:SAEV2.0}{Autoriza la creación de cuenta.} Para que el sistema autorice una solicitud de creación de cuenta de usuario, éste debe verificar la condición \cdtIdRef{C1}{Solicitud fuera de periodo de registro}. Si la condición es falsa, es decir, la solicitud esta dentro del periodo de registro, el sistema pasa a la tarea \cdtRefTask{T3-P0.1:SAEV2.0}{Genera cuenta.} Cuando la condición es verdadera, es decir, la solicitud esta fuera del periodo de registro, el sistema pasa a la tarea \cdtRefTask{T2-P0.1:SAEV2.0}{Notifica solicitud fuera de periodo de registro.}
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P0.1:SAEV2.0}{Notifica solicitud fuera de periodo de registro.} Muestra la notificación \cdtIdRef{NS1}{Solicitud fuera de periodo de registro}, donde indica que no se puede crear la cuenta de usuario por estar fuera de dicho periodo, por lo que no puede continuar el proceso.
+
+      %Tarea c
+      \Ppaso[\itarea] \cdtLabelTask{T3-P0.1:SAEV2.0}{Genera cuenta.} Una vez que se ha autorizado la creación de la cuenta, antes de registrar la información enviada por el \cdtRef{Actor:Aspirante}{Aspirante} mediente el formulario \cdtIdRef{F1}{Generación de cuenta}, el sistema verifica que no haya errores en la información. Si se presenta algun error al procesar la información, el sistema pasa a la tarea \cdtRefTask{T4-P0.1:SAEV2.0}{Notifica error en la información.} Si la información es correcta, el sistema verifica ahora que no se cumpla alguna de las siguientes condiciones:
+
+	%Condiciones
+	\begin{itemize}
+	  %Condición
+	  \item \cdtIdRef{C0.1}{Alumno en baja.} el sistema pasa a la tarea \cdtRefTask{T5-P0.1:SAEV2.0}{Notifica rechazo por baja.}
+	  %Condición
+	  \item \cdtIdRef{C0.3}{Cuenta con activación inhabilitada.} el sistema pasa a la tarea \cdtRefTask{T6-P0.1:SAEV2.0}{Notifica cuenta con activación inhabilitada.} 
+	  %Condición
+	  \item \cdtIdRef{C0.4}{Cuenta por activar.} el sistema pasa a la tarea  \cdtRefTask{T7-P0.1:SAEV2.0}{Notifica cuenta por activar.}
+	  %Condición
+	  \item \cdtIdRef{C0.5}{Cuenta previa activada.} el sistema pasa a la tarea \cdtRefTask{T8-P0.1:SAEV2.0}{Notifica cuenta previa activada.}
+	\end{itemize}
+
+      Si no se cumple alguna de las condiciones anteriores, el sistema registra la información, crea la cuenta del usuario y el sistema pasa a la tarea \cdtLabelTask{T9-P0.1:SAEV2.0}{Notifica solicitid de activación de cuenta.}.
+
+      %Tarea d
+      \Ppaso[\itarea] \cdtLabelTask{T4-P0.1:SAEV2.0}{Notifica error en la información.} Muestra la notificación \cdtIdRef{NS2}{Información errónea en formulario}, donde indica que no se pueden procesar los datos recibidos debido a que no son correctos, y pasa a la tarea \cdtRefTask{T3-P0.1:SAEV2.0}{Genera cuenta.}, para recibir nuevamente la información.
+
+      %Tarea e
+      \Ppaso[\itarea] \cdtLabelTask{T5-P0.1:SAEV2.0}{Notifica rechazo por baja.} el sistema envía la notificación \cdtIdRef{NS3}{Cuenta denegada por baja}
+
+      %Tarea f
+      \Ppaso[\itarea] \cdtLabelTask{T6-P0.1:SAEV2.0}{Notifica cuenta con activación inhabilitada.} el sistema envía la notificación \cdtIdRef{NS4}{Cuenta con activación inhabilitada}
+
+      %Tarea g
+      \Ppaso[\itarea] \cdtLabelTask{T7-P0.1:SAEV2.0}{Notifica cuenta por activar.} el sistema envía la notificación \cdtIdRef{NS5}{Cuenta por activar}
+
+      %Tarea h
+      \Ppaso[\itarea] \cdtLabelTask{T8-P0.1:SAEV2.0}{Notifica cuenta previa activada.} el sistema envía la notificación \cdtIdRef{NS6}{Cuenta activada previamente}
+
+      %Tarea i
+      \Ppaso[\itarea] \cdtLabelTask{T9-P0.1:SAEV2.0}{Notifica solicitid de activación de cuenta.} el sistema envía la notificación \cdtIdRef{MSJ0.2}{Operacion Exitosa}
+
+    \end{enumerate}
+
+\end{PDescripcion}

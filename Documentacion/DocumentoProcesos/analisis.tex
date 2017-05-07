@@ -1,0 +1,148 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tipo de documento y paquetes
+\documentclass[10pt]{book}
+\usepackage{cdt/cdtAnalisis}
+\usepackage{subfigure}
+\usepackage{appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colores
+\let\TAB\tabular
+\renewcommand\tabular{\noindent\TAB}
+\definecolor{gray1}{gray}{0.89}%{0.80}
+\definecolor{gray2}{gray}{0.68}
+\definecolor{gray3}{gray}{0.97}
+\definecolor{pink1}{rgb}{1,0.87,0.75}
+\definecolor{green1}{rgb}{0,0.75,0.75}
+\definecolor{blue1}{rgb}{0.75,0.75,1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Datos del proyecto
+\sistema{Análisis del proceso de Gestión Escolar de la Escuela Libre de Derecho}
+
+\proyecto[SAEV2.0]{Sistema de Administración Escolar V2.0}
+
+\documento{Inicial}{Externo}{REING}{Propuesta del Nuevo Proceso de Admisión a Nivel Superior}{1.0}
+
+\fecha{\today}
+
+\organizacion{Escuela Libre de Derecho}
+
+\author{Escuela Superior de Cómputo del IPN}
+
+\elaboro[Líder de proyecto IPN-ESCOM]{M. en C. José Jaime López Rabadán.}   % Responsable del contenido (IPN)
+\superviso[Área]{Persona.} % Quien recibe el documento (Contraparte)
+\aprobo[Área]{Persona.} % Responsable Técnico (Contraparte)
+
+\title{\varProyecto}
+\subtitle {\varCveDocumento--\varDocumento}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Elementos contenidos en el documento
+
+% TODO: Al finalizar el análisis resuma aquí todos los elementos del componente: RN, CU, IU, MSG.
+% \elemRefs{
+% 	\elemItem{PU1}{1.0}{Proceso de Usuario 1, registro de nuevo Usuario}
+% 	\elemItem{PPS1}{1.0}{Persona Física con Perfil Empresarial}
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Documentos relacionados con el documento actual
+% TODO: Escriba los documentos en los que esta basado este documento.
+\docRefs{
+	\docItem{Reglamento General}{}{Reglameto General, Aprobado por la Asamblea Extraordinaria de la Junta General de Profesores, 19 de octubre de 2005. Última reforma, 27-V-2015}
+	\docItem{Convocatoria de Ingreso}{}{Convocatoria de Selección a la Carrera de Abogado, Escuela Libre de Derecho, Ciclo Escolar 2017-2018 }
+	\docItem{Introducción BPMN}{}{Stephen A. White. Introduction to BPMN. IBM Corporation}
+	\docItem{Documentación BPMN}{}{Business Process Model and Notation (BPMN), v2.0. Número de documento en OMG: dtc/2009-08-14. URL de la documentación estándar: \url{http://www.omg.org/spec/BPMN/2.0/}. Agosto 2009}
+	\docItem{F1.4-1}{1.0}{Formato de Datos Personales}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inicio del Documento
+\begin{document}
+
+    %=========================================================
+    % Portada
+    \ThisLRCornerWallPaper{1}{cdt/theme/agua.jpg}
+    \thispagestyle{empty}
+
+    \maketitle
+    
+    %=========================================================
+    % Hoja de revisión
+    %\makeDocInfo
+    %\bigskip\\
+    %\makeElemRefs   --Coment--
+    %\makeDocRefs
+    %\makeObservaciones[3cm]
+    %\vspace{2cm}
+    %\makeFirmas
+
+    %=========================================================
+    % Indices del documento
+    \frontmatter
+    \LRCornerWallPaper{1}{cdt/theme/pleca.jpg}
+    \tableofcontents
+    \listoffigures
+    %\listoftables
+    \mainmatter
+
+    %=========================================================
+    % Para ocultar la información del documentador se descomenta: \hideControlVersion
+    %\hideControlVersion
+ 
+    %=========================================================
+    % Capítulos del documento
+
+    %---------- Introducción al contenido del documento
+    %\input{introduccion} % Introducción al contenido del documento
+
+    %---------- Proceso de Admisión
+
+	%======================EJEMPLO===================================
+	\chapter{Procesos}    
+    \input{procesos/Ejemplo/proceso} 		%PA2.1 Generación de cuenta 
+
+%====================CELULA1=====================================
+%Introducir los correspondientes a la GESTIÓN DE EMPLEADOS
+
+
+
+%====================CELULA2=====================================
+%Introducir los correspondientes a la GESTIÓN DE INVENTARIO
+
+
+
+%====================CELULA3=====================================
+%Introducir los correspondientes a la GESTIÓN DE PRÉSTAMOS
+
+
+
+%====================CELULA4=====================================
+%Introducir los correspondientes a la GESTIÓN DE USUARIOS
+
+
+
+%====================CELULA5=====================================
+%Introducir los correspondientes a la GESTIÓN DE CREDENCIALES
+
+
+    
+    
+    %---------- Actores
+    \input{actores} %Actores identificados y su descripción
+
+    %---------- Glosario
+    \input{glosario}
+
+    %---------- Anexos
+    \appendix
+    \cfinput{anexos/Condiciones} % Condiciones y Reglas de Negocio
+    \cfinput{anexos/Mensajes} % Mensajes
+    \cfinput{anexos/Formularios} % Formularios
+    \cfinput{anexos/Documentos} % Documentos
+
+    \clossing
+
+\end{document}
+
