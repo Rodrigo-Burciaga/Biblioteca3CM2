@@ -1,0 +1,126 @@
+%========================================================
+%Proceso
+%========================================================
+
+%========================================================
+% Descripción general del proceso
+%-----------------------------------------------
+\begin{Proceso}{P4.2}{Dar de Baja Lector} {
+  
+  %-------------------------------------------
+  %Resumen
+
+
+
+  Proceso que realiza el \cdtRef{Actor:Bibliotecario}{Bibliotecario} con el fin de dar de baja a un \cdtRef{Actor:Lector}{Lector} ya sea alumno o docente del sistema siguiendo reglas de negocio que permiten que el usuario sea dado de baja cuando se encuentre libre de adeudos y multas.
+  
+Como primer paso se tendrá que validar al lector mediante su credencial de manera que se compruebe que este registrado en el sistema.
+Si el lector al que se dará de baja tiene adeudos o multas pendientes, el sistema se encargará de notificar al bibliotecario posteriormente se mostraran los adeudos y multas que corresponden al lector.
+
+
+  Para que proceda la baja, el \cdtRef{Actor:Lector}{Lector} tiene la responsabilidad tanto de pagar sus multas y devolver el material que tiene pendiente, de lo contrario la baja no procederá.
+El sistema termina el proceso de dar de baja. 
+
+  %-------------------------------------------
+  %Diagrama del proceso
+
+  \noindent La Figura \cdtRefImg{P4.2}{Dar de baja Lector} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+
+  \Pfig[0.95]{./procesos/C4/Images/GU4_2-DarDeBajaLector.png}{P4.2}{Dar de Baja Lector}
+
+} {P4.2:Dar de Baja Lector}
+
+  %-------------------------------------------
+  %Elementos del proceso
+
+  \UCitem{Actores} { %Actores
+    \cdtRef{Actor:Lector}{Lector} y \cdtRef{Actor:Bibliotecario}{Bibliotecario}.
+  }
+
+  \UCitem{Objetivo} { %Objetivo
+    Dar de baja a un lector verificando que no tenga adeudos o multas en su historial.
+  }
+
+  \UCitem{Insumos de entrada} { %Insumos de entrada
+  	\begin{UClist}
+  		\UCli Id del Lector
+    \end {UClist}
+  }
+  
+  \UCitem{Proveedores} { %Proveedores
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Productos de salida} { %Productos de salida
+    \begin{UClist}
+      \UCli Notificación \cdtIdRef{MSJ4.5}{Operación Exitosa}.
+      \UCli Notificación \cdtIdRef{MSJ4.1}{Lector No registrado}.
+            \UCli Notificación \cdtIdRef{MSJ4.2}{Tienes Adeudos pendientes}.
+            \UCli Tabla que contiene las multas pendientes del \cdtRef{Actor:Lector}{Lector}.
+\UCli Notificación \cdtIdRef{MSJ4.4}{Tienes Multas pendientes}.            
+\UCli Tabla que contiene los adeudos pendientes del \cdtRef{Actor:Lector}{Lector}.
+
+    \end{UClist}
+  }
+
+  \UCitem{Cliente} { %Cliente
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Mecanismo de medición} { %Mecanismo de medición
+    \begin{UClist}
+      \UCli Respuesta inmediata
+    \end{UClist}
+  }
+  \UCitem{Interrelación con otros procesos} { %Interrelación con otros procesos
+    \cdtIdRef{P4.4}{Consulta Historial de lector}
+  }
+
+
+\end{Proceso}
+
+%========================================================
+%Descripción de tareas
+%-----------------------------------------------
+\begin{PDescripcion}
+
+  %Actor: Aspirante
+  \Ppaso Lector
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.2:Lector}{Pagar Multas.}Notifica al lector que tiene multas pendientes y debe pagarlas de lo contrario no se puede dar de baja.
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P4.2:Lector}{Devuelve el material.}Devuelve el material. Notifica al lector que aún tiene devoluciones pendientes y debe devolver el material, de lo contrario la baja no procederá.
+
+    \end{enumerate}
+
+  %Actor: SAEV2.0
+  \Ppaso Bibliotecario
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.2:Bibliotecario}{Validar al Lector.} Para que el sistema pueda validar al lector debe verificar la Regla de negocio RN4.4 Identificación del lector. Si la regla de negocio se cumple pasa a la tarea \cdtRefTask{T3-P4.2:Bibliotecario}{Dar de baja Lector}, si no se cumple la regla de negocio el sistema pasa a la tarea \cdtRefTask{T2-P4.2:Bibliotecario}{Autenticar Lector}.
+
+%referenciar tareas \cdtRefTask{T2-P0.1:SAEV2.0}{Notifica solicitud fuera de periodo de registro.}
+
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P4.2:Bibliotecario}{Autenticar Lector.} El sistema autenticará al lector a partir del ID del mismo para comprobar si el lector está registrado de no estar registrado muestra la Notificación \cdtIdRef{MSJ4.1}{Lector No registrado}.
+      %Tarea c
+      \Ppaso[\itarea] \cdtLabelTask{T3-P4.2:Bibliotecario}{Dar de baja Lector.}Para que el sistema proceda con la baja del Lector deberá verificar las reglas de negocio RN4.5 El lector tiene multas y RN4.6 El lector tiene adeudos. Si las reglas de negocio se cumplen se pasa a la tarea \cdtRefTask{T6-P4.2:Bibliotecario}{Dar de baja Lector}, si no se cumple la RN4.5 se pasa a la tarea \cdtRefTask{T4-P4.2:Bibliotecario}{Generar reporte de multa}, si no se cumple la RN4.5 se pasa a la tarea \cdtRefTask{T5-P4.2:Bibliotecario}{Generar reporte de adeudo(s)}.
+
+      %Tarea d
+      \Ppaso[\itarea] \cdtLabelTask{T4-P4.2:Bibliotecario}{Generar reporte de multa.} El sistema genera la notificación NS3 al igual que la tabla indicando las multas que tiene pendientes a pagar para que sean mostrados al lector pasando a la tarea \cdtRefTask{T1-P4.2:Lector}{Pagar multa(s)}. 
+
+      %Tarea e
+      \Ppaso[\itarea] \cdtLabelTask{T5-P4.2:Bibliotecario}{Genera reporte de adeudo(s).} El sistema genera la notificación NS4 al igual que la tabla indicando los adeudos que tiene pendientes a devolver para que sean mostrados al lector pasando a la tarea \cdtRefTask{T2-P4.2:Lector}{Devueve el material}.
+
+      %Tarea f
+      \Ppaso[\itarea] \cdtLabelTask{T6-P4.2:Bibliotecario}{Dar de baja Lector.} El sistema dará de baja al lector y mostrará la notificación \cdtIdRef{MSJ4.5}{Operación Exitosa}.
+
+    \end{enumerate}
+
+\end{PDescripcion}

@@ -1,17 +1,29 @@
 \select@language {spanish}
-\contentsline {chapter}{\numberline {1}Procesos}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}P0.1 Solicitud de cuenta}{2}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Resumen}{2}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Elementos del proceso}{3}{subsection.1.1.2}
-\contentsline {subsection}{\numberline {1.1.3}Descripci\IeC {\'o}n de Tareas}{3}{subsection.1.1.3}
-\contentsline {chapter}{\numberline {2}Actores del sistema}{7}{chapter.2}
-\contentsline {chapter}{\numberline {3}Glosario de t\IeC {\'e}rminos}{9}{chapter.3}
-\contentsline {chapter}{\numberline {A}Condiciones}{11}{appendix.Alph1}
-\contentsline {subsection}{\numberline {A.0.1}C0.1 Alumno en baja }{11}{subsection.Alph1.0.1}
-\contentsline {chapter}{\numberline {B}Mensajes}{13}{appendix.Alph2}
-\contentsline {subsection}{\numberline {B.0.1}MSJ0.1 Activaci\IeC {\'o}n de cuenta }{13}{subsection.Alph2.0.1}
-\contentsline {subsection}{\numberline {B.0.2}MSJ0.2 Operacion Exitosa }{13}{subsection.Alph2.0.2}
-\contentsline {chapter}{\numberline {C}Formularios}{15}{appendix.Alph3}
-\contentsline {subsection}{\numberline {C.0.1}F0.1 Solicitud de Cuenta }{15}{subsection.Alph3.0.1}
-\contentsline {chapter}{\numberline {D}Documentos}{17}{appendix.Alph4}
-\contentsline {subsection}{\numberline {D.0.1}D0.1 Credencial de Estudiante }{17}{subsection.Alph4.0.1}
+\contentsline {section}{\numberline {0.1}P4.1 Dar de Alta Lector}{1}{section.0.1}
+\contentsline {subsection}{\numberline {0.1.1}Resumen}{1}{subsection.0.1.1}
+\contentsline {subsection}{\numberline {0.1.2}Elementos del proceso}{1}{subsection.0.1.2}
+\contentsline {subsection}{\numberline {0.1.3}Descripci\IeC {\'o}n de Tareas}{2}{subsection.0.1.3}
+\contentsline {section}{\numberline {0.2}P4.2 Dar de Baja Lector}{3}{section.0.2}
+\contentsline {subsection}{\numberline {0.2.1}Resumen}{3}{subsection.0.2.1}
+\contentsline {subsection}{\numberline {0.2.2}Elementos del proceso}{4}{subsection.0.2.2}
+\contentsline {subsection}{\numberline {0.2.3}Descripci\IeC {\'o}n de Tareas}{4}{subsection.0.2.3}
+\contentsline {section}{\numberline {0.3}P4.3 Actualizar datos de Lector}{6}{section.0.3}
+\contentsline {subsection}{\numberline {0.3.1}Resumen}{6}{subsection.0.3.1}
+\contentsline {subsection}{\numberline {0.3.2}Elementos del proceso}{6}{subsection.0.3.2}
+\contentsline {subsection}{\numberline {0.3.3}Descripci\IeC {\'o}n de Tareas}{7}{subsection.0.3.3}
+\contentsline {section}{\numberline {0.4}P4.4 Consultar historial de Lector}{8}{section.0.4}
+\contentsline {subsection}{\numberline {0.4.1}Resumen}{8}{subsection.0.4.1}
+\contentsline {subsection}{\numberline {0.4.2}Elementos del proceso}{8}{subsection.0.4.2}
+\contentsline {subsection}{\numberline {0.4.3}Descripci\IeC {\'o}n de Tareas}{9}{subsection.0.4.3}
+\contentsline {chapter}{\numberline {1}Actores del sistema}{11}{chapter.1}
+\contentsline {chapter}{\numberline {A}Mensajes}{13}{appendix.Alph1}
+\contentsline {subsection}{\numberline {A.0.4}MSJ4.1 Lector no registrado }{13}{subsection.Alph1.0.4}
+\contentsline {subsection}{\numberline {A.0.5}MSJ4.2 Alumno dado de baja }{13}{subsection.Alph1.0.5}
+\contentsline {subsection}{\numberline {A.0.6}MSJ4.3 Tiene Adeudos pendientes }{13}{subsection.Alph1.0.6}
+\contentsline {subsection}{\numberline {A.0.7}MSJ4.4 Tiene Multas pendientes }{13}{subsection.Alph1.0.7}
+\contentsline {subsection}{\numberline {A.0.8}MSJ4.5 Operaci\IeC {\'o}n Exitosa }{13}{subsection.Alph1.0.8}
+\contentsline {subsection}{\numberline {A.0.9}MSJ4.6 El lector aun no tiene historial }{14}{subsection.Alph1.0.9}
+\contentsline {subsection}{\numberline {A.0.10}MSJ4.7 Inscribete}{14}{subsection.Alph1.0.10}
+\contentsline {chapter}{\numberline {B}Formularios}{15}{appendix.Alph2}
+\contentsline {subsection}{\numberline {B.0.11}F4.1 Dar de alta Lector }{15}{subsection.Alph2.0.11}
+\contentsline {subsection}{\numberline {B.0.12}F4.2 Actualizar Lector }{15}{subsection.Alph2.0.12}

@@ -1,0 +1,124 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------
+%========================================================
+%Proceso Actualizar datos de un Alumno
+%========================================================
+
+%========================================================
+% DescripciÃ³n general del proceso
+%-----------------------------------------------
+\begin{Proceso}{P4.3}{Actualizar datos de Lector} {
+  
+  %-------------------------------------------
+  %Resumen
+
+  Proceso que realiza el \cdtRef{Actor:Bibliotecario}{Bibliotecario} con la finalidad tener actualizados los datos del \cdtRef{Actor:Lector}{Lector} cada periodo escolar al inicio del semestre y de esta forma poder continuar con el prestamo de libros de la biblioteca.
+  
+  En \cdtRef{Actor:Lector}{Lector} solicita la actualización de datos correspondientes en la biblioteca, verifican su registro  solicitando la credencial del instituto y validan si esta inscrito en el sistema de la biblioteca de lo contrario se le notifica que debe realizar el registro. 
+  Una vez que la información es enviada correctamente, el  \cdtRef{Actor:Bibliotecario}{Bibliotecario} proporciona un formato para el {Actor:Lector}{Lector} que debe completar correctamente y el {Actor:Bibliotecario}{Bibliotecario} debe asegurarse  que sea un formato valido para proceder a la actualización.   
+
+
+  %-------------------------------------------
+  %Diagrama del proceso
+
+  \noindent La Figura \cdtRefImg{P4.3}{Actualizar datos de Lector} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+
+  \Pfig[0.95]{./procesos/C4/Images/GU4_3-ActualizarLector.png}{P4.3}{Actualizar datos de Lector}
+
+} {P4.3:Actualizar datos de Lector}
+
+  %-------------------------------------------
+  %Elementos del proceso
+
+  \UCitem{Actores} { %Actores
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario} y \cdtRef{Actor:Letor}{Lector}.
+  }
+
+  \UCitem{Objetivo} { %Objetivo
+    Actualizar y modificar los  datos de un \cdtRef{Actor:Letor}{Lector}.
+  }
+
+  \UCitem{Insumos de entrada} { %Insumos de entrada
+  	\begin{UClist}
+  		\UCli Datos del Formulario \cdtIdRef{F4.2}{Actualizar Lector}. 
+     	
+    \end {UClist}
+  }
+  
+  \UCitem{Proveedores} { %Proveedores
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Productos de salida} { %Productos de salida
+    \begin{UClist}
+    
+      \UCli Tabla actualizada de datos del Alumno.
+      \UCli   Notificación \cdtIdRef{MSJ4.5}{Operacion Exitosa}.
+       \UCli   Notificación \cdtIdRef{MSJ4.1}{Lector no registrado}.
+       \UCli   Notificación \cdtIdRef{MSJ4.7}{Inscribete}.
+    \end{UClist}
+  }
+
+  \UCitem{Cliente} { %Cliente
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Mecanismo de medición} { %Mecanismo de mediciÃ³n
+    \begin{UClist}
+      \UCli Respuesta inmediata
+      
+    \end{UClist}
+  }
+  \UCitem{Interrelación con otros procesos} { %InterrelaciÃ³n con otros procesos
+  }
+
+
+\end{Proceso}
+
+%========================================================
+%DescripciÃ³n de tareas
+%-----------------------------------------------
+\begin{PDescripcion}
+
+  %Actor: Aspirante
+  \Ppaso Lector
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.3:Lector}{Corrige el formato 4.2.} Proporcionará los datos correctos, según el Formato 4.2, de lo contrario termina el proceso.
+	
+
+    \end{enumerate}
+    
+    
+      %Actor: SAEV2.0
+  \Ppaso Bibliotecario 
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.3:Bibliotecario}{Validar Lector.} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} solicita la credencial del instituto del \cdtRef{Actor:Lector}{Lector} interesado y el sistema debe verificar la regla de negocio RN 4.4 Identificacion del Lector, si la regla de negocio no se cumple pasa la tarea \cdtRefTask{T2-P4.3:Bibliotecario}{Autentificar Lector.} de lo contrario pasa a la tarea \cdtRefTask{T3-P4.3:Bibliotecario}{Lector no esta inscrito en el instituo.}.
+
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P4.3:Bibliotecario}{Autentificar Lector.}Muestra la Notificación \cdtIdRef{MSJ4.7}{Inscribete}
+      
+      %Tarea c
+      \Ppaso[\itarea] \cdtLabelTask{T3-P4.3:Bibliotecario}{Lector no esta inscrito en el instituto } Muestra mensaje de nostificación \cdtIdRef{MSJ4.1}{Lector no registrado}.
+      .
+    %Tarea d
+      \Ppaso[\itarea] \cdtLabelTask{T4-P4.3:Bibliotecario}{Actualizar datos del Lector.} El Bibliotecario entrega el formato F4.1 al \cdtRef{Actor:Lector}{Lector} donde se valida la regla de negocio RN4.3 Formato Llenado correctamente,si no se cumple pasa a la tarea \cdtRefTask{T1-P4.3:Lector}{Corrige el formato 4.2.}, pero si se cumple la regla de negocios pasa a la tarea \cdtRefTask{T5-P4.3:Bibliotecario}{Actualizar datos.}
+      
+      
+      %Tarea e
+      \Ppaso[\itarea] \cdtLabelTask{T5-P4.3:Bibliotecario}{Actualizar datos.} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} cambia en el sistema los datos del \cdtRef{Actor:Lector}{Lector} donde se notifica que los datos estan actualizados  \cdtIdRef{MSJ4.5}{Operacion Exitosa}.
+
+      
+          \end{enumerate}
+
+\end{PDescripcion}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+
+

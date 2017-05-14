@@ -1,0 +1,124 @@
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+%========================================================
+%Proceso Cambiar estado de Alumno
+%========================================================
+
+%========================================================
+% DescripciÃ³n general del proceso
+%-----------------------------------------------
+\begin{Proceso}{P4.1}{Dar de Alta Lector} {
+  
+  %-------------------------------------------
+  %Resumen
+
+Proceso que realiza el \cdtRef{Actor:Lector}{Lector}, con el fin de tener acceso a los prestamos bibliotecarios, y tenga el derecho de estar monitoreado su perfil y así visualizar el \cdtRef{Actor:Bibliotecario}{Bibliotecario} en qué estado se encuentra el \cdtRef{Actor:Lector}{Lector}.
+  
+  
+Para poder tener un Registro en la Biblioteca, el \cdtRef{Actor:Lector}{Lector} deberá de contar con los requisitos del formulario que pide dicho organismo para validar los datos, y que haga valer la RN4.1 Lector Inscrito en el instituto y la RN4.3 Formato 4.1 llenado correctamente, ya que al no estar inscrito a la escuela, no podrá formar parte del proceso de registro a la Biblioteca.
+  
+
+
+  %-------------------------------------------
+  %Diagrama del proceso
+
+  \noindent La Figura \cdtRefImg{P4.1}{Dar de Alta Lector} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+
+  \Pfig[0.95]{./procesos/C4/Images/GU4_1-DardeAltaLector.JPG}{P4.1}{Dar de Alta Lector}
+
+} {P4.1:Dar de Alta Lector}
+
+  %-------------------------------------------
+  %Elementos del proceso
+
+  \UCitem{Actores} { %Actores
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario} y \cdtRef{Actor:Lector}{Lector}.
+  }
+
+  \UCitem{Objetivo} { %Objetivo
+    Validar Datos y generar el registro del \cdtRef{Actor:Lector}, para que este tenga privilegios según el perfil en la biblioteca.
+  }
+
+  \UCitem{Insumos de entrada} { %Insumos de entrada
+  	\begin{UClist}
+  		\UCli Datos del Formulario \cdtIdRef{F4.1}{Dar de alta Lector}.
+    \end {UClist}
+  }
+  
+  \UCitem{Proveedores} { %Proveedores
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Productos de salida} { %Productos de salida
+    \begin{UClist}
+    
+      \UCli Tabla generada con los datos correspondientes del  \cdtRef{Actor:Lector}{Lector} y su Estado en el sistema.
+      \UCli   Notificación \cdtIdRef{MSJ4.1}{Lector no registrado}.
+      \UCli   Notificación \cdtIdRef{MSJ4.5}{Operación exitosa}.
+    \end{UClist}
+  }
+
+  \UCitem{Cliente} { %Cliente
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Mecanismo de medición} { %Mecanismo de mediciÃ³n
+    \begin{UClist}
+      \UCli Respuesta inmediata
+      
+    \end{UClist}
+  }
+  \UCitem{Interrelación con otros procesos} { %InterrelaciÃ³n con otros procesos
+    \cdtIdRef{P4.4}{Consultar historial de Lector}
+  }
+
+
+\end{Proceso}
+
+%========================================================
+%DescripciÃ³n de tareas
+%-----------------------------------------------
+\begin{PDescripcion}
+
+  %Actor: Aspirante
+  \Ppaso Lector
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.1:Lector}{Inscribir al Instituto.}Tendra que inscribirse a la Escuela para que el Bibliotecario pueda generar el registro al organismo y proporcionar los datos correspondientes al \cdtRef{Actor:Bibliotecario}{Bibliotecario} para que este pueda validar la información adquirida y pueda empezar el registro a la Biblioteca. 
+
+\Ppaso[\itarea] \cdtLabelTask{T2-P4.1:Lector}{Completa Datos.} Proporcionará los datos completos, según el Formato 1, de lo contrario termina el proceso.
+
+	
+
+    \end{enumerate}
+    
+    
+      %Actor: SAEV2.0
+  \Ppaso Bibliotecario 
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.1:Bibliotecario}{Validar datos de Lector.} Valida los datos del \cdtRef{Actor:Lector}{Lector} Según el Formato 1 que estén completos y que sea un \cdtRef{Actor:Lector}{Lector} inscrito y/o Registrado a la escuela, si la regla de negocio se cumple pasa a la tarea \cdtRefTask{T2-P4.1:Bibliotecario}{Datos Incompletos.}, donde valida por completo que los datos estén completos, si no cumple con la regla de negocio, termina el proceso. Este notifica al \cdtRef{Actor:Lector}{Lector} que deberá de inscribirse a la escuela.
+
+%referenciar tareas \cdtRefTask{T2-P0.1:SAEV2.0}{Notifica solicitud fuera de periodo de registro.}
+
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P4.1:Bibliotecario}{Datos Incompletos.} Valida que los datos este completos, si los datos están completos, pasa a la tarea \cdtRefTask{T3-P4.1:Bibliotecario}{Registro.} que registra los datos en el sistema, si no están completos el sistema genera una notificación que mostrara al Bibliotecario que los datos son incompletos, y este le notificara al Lector.
+      
+      %Tarea c
+      \Ppaso[\itarea] \cdtLabelTask{T3-P4.1:Bibliotecario}{Registro.}Registra los datos del Lector en el sistema y genera la Notificación \cdtIdRef{MSJ4.5}{Operación exitosa} para mostrarlo al \cdtRef{Actor:Lector}{Lector}.
+     
+
+          \end{enumerate}
+
+\end{PDescripcion}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
