@@ -53,6 +53,7 @@ $(document).ready(function(){
             window.location=LinkSearchBook+"?bookName="+inputValue;
        });
     });
+
     $('.delete-user-employer').on('click', function(e){
         e.preventDefault();
         swal({
