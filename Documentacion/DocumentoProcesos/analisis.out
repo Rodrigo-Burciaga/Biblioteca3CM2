@@ -1,16 +1,28 @@
-\BOOKMARK [0][-]{chapter.1}{Procesos}{}% 1
-\BOOKMARK [1][-]{section.1.1}{P0.1 Solicitud de cuenta}{chapter.1}% 2
-\BOOKMARK [2][-]{subsection.1.1.1}{Resumen}{section.1.1}% 3
-\BOOKMARK [2][-]{subsection.1.1.2}{Elementos del proceso}{section.1.1}% 4
-\BOOKMARK [2][-]{subsection.1.1.3}{Descripci\363n de Tareas}{section.1.1}% 5
-\BOOKMARK [0][-]{chapter.2}{Actores del sistema}{}% 6
-\BOOKMARK [0][-]{chapter.3}{Glosario de t\351rminos}{}% 7
-\BOOKMARK [0][-]{appendix.Alph1}{Condiciones}{}% 8
-\BOOKMARK [1][-]{subsection.Alph1.0.1}{C0.1 Alumno en baja }{appendix.Alph1}% 9
-\BOOKMARK [0][-]{appendix.Alph2}{Mensajes}{}% 10
-\BOOKMARK [1][-]{subsection.Alph2.0.1}{MSJ0.1 Activaci\363n de cuenta }{appendix.Alph2}% 11
-\BOOKMARK [2][-]{subsection.Alph2.0.2}{MSJ0.2 Operacion Exitosa }{subsection.Alph2.0.1}% 12
-\BOOKMARK [0][-]{appendix.Alph3}{Formularios}{}% 13
-\BOOKMARK [1][-]{subsection.Alph3.0.1}{F0.1 Solicitud de Cuenta }{appendix.Alph3}% 14
-\BOOKMARK [0][-]{appendix.Alph4}{Documentos}{}% 15
-\BOOKMARK [1][-]{subsection.Alph4.0.1}{D0.1 Credencial de Estudiante }{appendix.Alph4}% 16
+\BOOKMARK [1][-]{section.0.1}{P4.1 Dar de Alta Lector}{}% 1
+\BOOKMARK [2][-]{subsection.0.1.1}{Resumen}{section.0.1}% 2
+\BOOKMARK [2][-]{subsection.0.1.2}{Elementos del proceso}{section.0.1}% 3
+\BOOKMARK [2][-]{subsection.0.1.3}{Descripci\363n de Tareas}{section.0.1}% 4
+\BOOKMARK [1][-]{section.0.2}{P4.2 Dar de Baja Lector}{}% 5
+\BOOKMARK [2][-]{subsection.0.2.1}{Resumen}{section.0.2}% 6
+\BOOKMARK [2][-]{subsection.0.2.2}{Elementos del proceso}{section.0.2}% 7
+\BOOKMARK [2][-]{subsection.0.2.3}{Descripci\363n de Tareas}{section.0.2}% 8
+\BOOKMARK [1][-]{section.0.3}{P4.3 Actualizar datos de Lector}{}% 9
+\BOOKMARK [2][-]{subsection.0.3.1}{Resumen}{section.0.3}% 10
+\BOOKMARK [2][-]{subsection.0.3.2}{Elementos del proceso}{section.0.3}% 11
+\BOOKMARK [2][-]{subsection.0.3.3}{Descripci\363n de Tareas}{section.0.3}% 12
+\BOOKMARK [1][-]{section.0.4}{P4.4 Consultar historial de Lector}{}% 13
+\BOOKMARK [2][-]{subsection.0.4.1}{Resumen}{section.0.4}% 14
+\BOOKMARK [2][-]{subsection.0.4.2}{Elementos del proceso}{section.0.4}% 15
+\BOOKMARK [2][-]{subsection.0.4.3}{Descripci\363n de Tareas}{section.0.4}% 16
+\BOOKMARK [0][-]{chapter.1}{Actores del sistema}{}% 17
+\BOOKMARK [0][-]{appendix.Alph1}{Mensajes}{}% 18
+\BOOKMARK [1][-]{subsection.Alph1.0.4}{MSJ4.1 Lector no registrado }{appendix.Alph1}% 19
+\BOOKMARK [2][-]{subsection.Alph1.0.5}{MSJ4.2 Alumno dado de baja }{subsection.Alph1.0.4}% 20
+\BOOKMARK [2][-]{subsection.Alph1.0.6}{MSJ4.3 Tiene Adeudos pendientes }{subsection.Alph1.0.4}% 21
+\BOOKMARK [2][-]{subsection.Alph1.0.7}{MSJ4.4 Tiene Multas pendientes }{subsection.Alph1.0.4}% 22
+\BOOKMARK [2][-]{subsection.Alph1.0.8}{MSJ4.5 Operaci\363n Exitosa }{subsection.Alph1.0.4}% 23
+\BOOKMARK [2][-]{subsection.Alph1.0.9}{MSJ4.6 El lector aun no tiene historial }{subsection.Alph1.0.4}% 24
+\BOOKMARK [2][-]{subsection.Alph1.0.10}{MSJ4.7 Inscribete}{subsection.Alph1.0.4}% 25
+\BOOKMARK [0][-]{appendix.Alph2}{Formularios}{}% 26
+\BOOKMARK [1][-]{subsection.Alph2.0.11}{F4.1 Dar de alta Lector }{appendix.Alph2}% 27
+\BOOKMARK [2][-]{subsection.Alph2.0.12}{F4.2 Actualizar Lector }{subsection.Alph2.0.11}% 28

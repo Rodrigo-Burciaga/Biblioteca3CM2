@@ -1,0 +1,138 @@
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+%========================================================
+%Proceso Cambiar estado de Alumno
+%========================================================
+
+%========================================================
+% DescripciÃ³n general del proceso
+%-----------------------------------------------
+\begin{Proceso}{P4.2}{Cambiar Estado de Lector} {
+  
+  %-------------------------------------------
+  %Resumen
+
+  Proceso que realiza el \cdtRef{Actor:Bibliotecario}{Bibliotecario} con la finalidad de bloquear al \cdtRef{Actor:Lector}{Lector} para que no pueda hacer uso de los servicios de la biblioteca, esto procede cuando tiene multas y por consecuente no realizo el pago correspondiente.
+  
+  
+   Como primer paso se consulta en el sistema, de esa forma se valida si esta registrado el \cdtRef{Actor:Lector}{Lector}. Si el \cdtRef{Actor:Lector}{Lector} esta registrado procede a corroborar las multas,  de lo contrario notifica que se encuentra sin registro y por lo tanto no se puede verificar el Estado del \cdtRef{Actor:Lector}{Lector}.
+  Una vez que la información es enviada correctamente, el  \cdtRef{Actor:Bibliotecario}{Bibliotecario} debe asegurarse de que el Estado del \cdtRef{Actor:Lector}{Lector} tenga multas  o que no existan, si existen el  \cdtRef{Actor:Bibliotecario}{Bibliotecario} genera el reporte por multas  o por adeudos. Soluicionada la situación del  \cdtRef{Actor:Lector}{Lector} procede al cambio de estado actualizando los pagos o devoluciones correspondientes.
+  
+
+
+  %-------------------------------------------
+  %Diagrama del proceso
+
+  \noindent La Figura \cdtRefImg{P4.2}{Cambiar Estado de Alumno} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+
+  \Pfig[0.95]{./procesos/C4/Images/GU4_2-CambiarEdo.png}{P4.2}{Cambiar Estado de Lector}
+
+} {P4.2:Cambiar Estado de Lector}
+
+  %-------------------------------------------
+  %Elementos del proceso
+
+  \UCitem{Actores} { %Actores
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario} y \cdtRef{Actor:Lector}{Lector}.
+  }
+
+  \UCitem{Objetivo} { %Objetivo
+    Cambiar el Estado del Alumno, verificando si existen multas o adeudos.
+  }
+
+  \UCitem{Insumos de entrada} { %Insumos de entrada
+  	\begin{UClist}
+  		\UCli Id del Lector. 
+     	
+    \end {UClist}
+  }
+  
+  \UCitem{Proveedores} { %Proveedores
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Productos de salida} { %Productos de salida
+    \begin{UClist}
+          \UCli Notificación \cdtIdRef{MSJ4.5}{Operación Exitosa}.
+      \UCli Notificación \cdtIdRef{MSJ4.1}{Usuario No registrado}.
+            \UCli Notificación \cdtIdRef{MSJ4.3}{Tienes Adeudos pendientes}.
+            \UCli Tabla que contiene las multas pendientes del \cdtRef{Actor:Lector}{Lector}.
+\UCli Notificación \cdtIdRef{MSJ4.4}{Tienes Multas pendientes}.            
+\UCli Tabla que contiene los adeudos pendientes del \cdtRef{Actor:Lector}{Lector}.
+    \end{UClist}
+  }
+
+  \UCitem{Cliente} { %Cliente
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Mecanismo de medición} { %Mecanismo de mediciÃ³n
+    \begin{UClist}
+      \UCli Respuesta inmediata
+      
+    \end{UClist}
+  }
+  \UCitem{Interrelación con otros procesos} { %InterrelaciÃ³n con otros procesos
+    \cdtIdRef{P4.4}{Consultar historial de Lector}
+  }
+
+
+\end{Proceso}
+
+%========================================================
+%DescripciÃ³n de tareas
+%-----------------------------------------------
+\begin{PDescripcion}
+
+  %Actor: Aspirante
+  \Ppaso Lector
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.2:Lector}{Solicita prestamo de un libro.} El \cdtRef{Actor:Lector}{Lector} requiere el servicio de prestamo de la biblioteca y actualizar su estado.
+
+\Ppaso[\itarea] \cdtLabelTask{T2-P4.2:Lector}{Pagar Multas.}Notifica al \cdtRef{Actor:Lector}{Lector} que tiene multas pendientes y debe pagarlas de lo contrario no se actualizará su estado.
+
+      \Ppaso[\itarea] \cdtLabelTask{T3-P4.2:Lector}{Devuelve el material.} Devuelve el material. Notifica al \cdtRef{Actor:Lector}{Lector} que aún tiene devoluciones pendientes y debe devolver el material, de lo contrario no se actualizará su estado.
+	
+
+    \end{enumerate}
+    
+    
+      %Actor: SAEV2.0
+  \Ppaso Bibliotecario 
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.2:Bibliotecario}{Validar al Lector.} Para que el sistema pueda validar al \cdtRef{Actor:Lector}{Lector} debe verificar la Regla de negocio RN4.4 Identificación del \cdtRef{Actor:Lector}{Lector}. Si la regla de negocio se cumple pasa a la tarea \cdtRefTask{T3-P4.2:Bibliotecario}{Cambio de estado de Lector}, si no se cumple la regla de negocio el sistema pasa a la tarea \cdtRefTask{T2-P4.2:Bibliotecario}{Autenticar Lector}.
+
+%referenciar tareas \cdtRefTask{T2-P0.1:SAEV2.0}{Notifica solicitud fuera de periodo de registro.}
+
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P4.2:Bibliotecario}{Autenticar Lector.} El sistema autenticará al \cdtRef{Actor:Lector}{Lector} a partir del ID para comprobar si el mismo está registrado de no estar registrado muestra la Notificación \cdtIdRef{MSJ4.1}{Usuario No registrado}.
+      
+      %Tarea c
+      \Ppaso[\itarea] \cdtLabelTask{T3-P4.2:Bibliotecario}{Cambio de estado de Lector.}Para que el sistema proceda con el cambio de estado de \cdtRef{Actor:Lector}{Lector} deberá verificar las reglas de negocio RN4.5 El \cdtRef{Actor:Lector}{Lector} tiene multas y RN4.6 El \cdtRef{Actor:Lector}{Lector} tiene adeudos. Si las reglas de negocio se cumplen se pasa a la tarea \cdtRefTask{T6-P4.2:Bibliotecario}{Cambio de estado de lector actualizado.}, si no se cumple la RN4.5 se pasa a la tarea \cdtRefTask{T4-P4.2:Bibliotecario}{Generar reporte de multa}, si no se cumple la RN4.5 se pasa a la tarea \cdtRefTask{T5-P4.2:Bibliotecario}{Generar reporte de adeudo(s)}.    
+     
+                 %Tarea d
+      \Ppaso[\itarea] \cdtLabelTask{T4-P4.2:Bibliotecario}{Generar reporte de multa.} El sistema genera la notificación NS3 al igual que la tabla indicando las multas que tiene pendientes a pagar para que sean mostrados al lector pasando a la tarea \cdtRefTask{T1-P4.2:Lector}{Pagar multa(s)}. 
+
+      %Tarea e
+      \Ppaso[\itarea] \cdtLabelTask{T5-P4.2:Bibliotecario}{Genera reporte de adeudo(s).} El sistema genera la notificación NS4 al igual que la tabla indicando los adeudos que tiene pendientes a devolver para que sean mostrados al \cdtRef{Actor:Lector}{Lector} pasando a la tarea \cdtRefTask{T2-P4.2:Lector}{Devueve el material}.
+      %Tarea i
+      \Ppaso[\itarea] \cdtLabelTask{T6-P4.2:Bibliotecario}{Cambio de estado de lector actualizado.} El sistema actualiza la situación del \cdtRef{Actor:Lector}{Lector}.
+      
+      
+      
+          \end{enumerate}
+
+\end{PDescripcion}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
