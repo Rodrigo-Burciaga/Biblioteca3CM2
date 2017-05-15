@@ -19,6 +19,23 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+      function login(){
+        var m=document.getElementById('mail').value;
+        if(m=="jefe"){
+          window.location="pages/JefeBiblioteca/gestionUsuarios/home.html";
+        }
+        if(m=="inventario"){
+          window.location="pages/ProcesosTecnicos/gestionUsuarios/home.html";
+        }
+        if(m=="control"){
+          window.location="pages/Control/gestionUsuarios/home.html";
+        }
+        if(m=="lector"){
+          window.location="pages/Lector/gestionUsuarios/home.html";
+        }
+      }
+    </script>
 </head>
 <body class="full-cover-background" style="background-image:url(assets/img/font-login.jpg);">
     <div class="form-container">
@@ -28,7 +45,7 @@
        <h4 class="text-center all-tittles" style="margin-bottom: 30px;">inicia sesión con tu cuenta</h4>
        <form>
             <div class="group-material-login">
-              <input type="text" class="material-login-control" required="" maxlength="70">
+              <input type="text" class="material-login-control" required="" maxlength="70" id="mail">
               <span class="highlight-login"></span>
               <span class="bar-login"></span>
               <label><i class="zmdi zmdi-account"></i> &nbsp; Correo Electrónico</label>
@@ -40,7 +57,7 @@
               <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
             </div>
             <button 
-          		    onclick="window.location = 'home.html';"
+          		    onclick="login();"
            		    class="btn-login" type="submit">Ingresar al sistema &nbsp; 
             		<i class="zmdi zmdi-arrow-right"></i>
             </button>

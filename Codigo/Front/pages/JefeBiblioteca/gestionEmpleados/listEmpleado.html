@@ -35,15 +35,9 @@
             </div>
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
-                    <li><a href="home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
-                    <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Gestión de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
-                        <ul class="list-unstyled">
-                            <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Administradores</a></li>
-                            <li><a href="teacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Estudiantes</a></li>
-                            <li><a href="student.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Docentes</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="../gestionUsuarios/home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="regEmpleado.html"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Agregar Empleado</a></li>
+                    <li><a href="listEmpleado.html"><i class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista deEmpleados</a></li>
                 </ul>
             </div>
         </div>
@@ -107,7 +101,7 @@
                     <td>carlos@empleado.com</td>
                     <td><i class="zmdi zmdi-check"></i></td>
                     <td>
-                        <button class="btn btn-primary"><i class="zmdi zmdi-edit"></i></button>
+                        <button class="btn btn-primary" onclick="window.location = 'editEmpleado.html'" ><i class="zmdi zmdi-edit"></i></button>
                         <button class="btn btn-danger delete-user-employer"><i class="zmdi zmdi-delete"></i></button>
                     </td>
                 </tr>
@@ -117,7 +111,7 @@
                     <td>josue@empleado.com</td>
                     <td><i class="zmdi zmdi-minus"></i></td>
                     <td>
-                        <button class="btn btn-primary"><i class="zmdi zmdi-edit"></i></button>
+                        <button class="btn btn-primary" onclick="window.location = 'editEmpleado.html'"><i class="zmdi zmdi-edit"></i></button>
                         <button class="btn btn-danger delete-user-employer"><i class="zmdi zmdi-delete"></i></button>
                     </td>
                 </tr>
