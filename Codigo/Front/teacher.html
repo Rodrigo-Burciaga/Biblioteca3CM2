@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Inicio</title>
+    <title>Teachers</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/book.ico" />
@@ -34,7 +33,7 @@
                 </figure>
                 <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
             </div>
-           <div class="full-reset nav-lateral-list-menu">
+            <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
                     <li><a href="home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li>
@@ -73,34 +72,43 @@
         </nav>
         <div class="container">
             <div class="page-header">
-              <h1 class="all-tittles">Sistema bibliotecario <small>Inicio</small></h1>
+              <h1 class="all-tittles">Sistema bibliotecario <small>Gestión de Usuarios</small></h1>
             </div>
         </div>
-        <section class="full-reset text-center" style="padding: 40px 0;">
-           
-            
-            <article class="tile">
-                <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
-                <div class="tile-name all-tittles">Enlace 1 </div>
-                <div class="tile-num full-reset">Info 1</div>
-            </article>
-            <article class="tile">
-                <div class="tile-icon full-reset"><i class="zmdi zmdi-bookmark-outline"></i></div>
-                <div class="tile-name all-tittles">Enlace 2</div>
-                <div class="tile-num full-reset">Info 2</div>
-            </article>
-            <article class="tile">
-                <div class="tile-icon full-reset"><i class="zmdi zmdi-assignment-account"></i></div>
-                <div class="tile-name all-tittles">Enlace 3</div>
-                <div class="tile-num full-reset">Info 3</div>
-            </article>
-         
-            <article class="tile">
-                <div class="tile-icon full-reset"><i class="zmdi zmdi-trending-up"></i></div>
-                <div class="tile-name all-tittles" style="width: 90%;">Enlace 4</div>
-                <div class="tile-num full-reset">&nbsp;</div>
-            </article>
-        </section>
+        <div class="container-fluid">
+            <ul class="nav nav-tabs nav-justified"  style="font-size: 17px;">
+                <li role="presentation"  class="active"><a href="teacher.html">Docentes</a></li>
+                <li role="presentation"><a href="student.html">Estudiantes</a></li>
+            </ul>
+        </div>
+        <div class="container-fluid"  style="margin: 50px 0;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <img src="assets/img/user05.png" alt="user" class="img-responsive center-box" style="max-width: 110px;">
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                   Bienvenido a la sección para gestionar a los Docentes de la biblioteca, aquí puedes registrar un nuevo Docente, además de buscarlo para actualizar su información o darlo de baja.
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 lead">
+                    <p class="text-center">
+                                <button type="button" onclick="window.location = 'regTeacher.html'" class="btn btn-primary btn-lg btn-block" style="margin-right: 20px;"> 
+                               &nbsp;&nbsp; Registrar Nuevo Docente 
+                                </button> 
+                    </p> 
+                    
+                    <p class="text-center">
+                                <button type="button" onclick="window.location = 'listteacher.html'" class="btn btn-primary btn-lg btn-block" style="margin-right: 20px;"> 
+                                &nbsp;&nbsp; Listado de Docentes
+                                </button>
+                    </p> 
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
