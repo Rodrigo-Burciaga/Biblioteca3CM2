@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Credenciales</title>
+    <title>Inicio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" />
@@ -20,9 +20,6 @@
     <script src="../../../js/main.js"></script>
 </head>
 <body>
-    
-    <!--            MENU LATERAL        -->
-    
     <div class="navbar-lateral full-reset">
         <div class="visible-xs font-movile-menu mobile-menu-button"></div>
         <div class="full-reset container-menu-movile custom-scroll-containers">
@@ -36,34 +33,29 @@
                 </figure>
                 <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
             </div>
-            <div class="full-reset nav-lateral-list-menu">
+           <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
                     <li><a href="../gestionUsuarios/home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="Consulta.html"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i>&nbsp;&nbsp; Busqueda de Libro</a></li>
                     
-                    <li><a href="../gestionPrestamos/Consulta.html"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i>&nbsp;&nbsp; Busqueda de Libro</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    
-    <!--            CoONTENEDOR DE LA PÁGINA        -->
-    
     <div class="content-page-container full-reset custom-scroll-containers">
-        
-        <!--            MENU SUPERIOR        -->
-        
         <nav class="navbar-user-top full-reset">
             <ul class="list-unstyled full-reset">
                 <figure>
-                   <img src="../../../assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box">
+                  <!--La imagen de perfil dependera de quien haya iniciado sesion-->
+                   <img src="../../../assets/img/user03.png" alt="user-picture" class="img-responsive img-circle center-box">
                 </figure>
                 <li style="color:#fff; cursor:default;">
-                    <span class="all-tittles">Admin Name</span>
+                    <span class="all-tittles">Lector Name</span>
                 </li>
                 <li  class="tooltips-general exit-system-button" data-href="../../../index.html" data-placement="bottom" title="Salir del sistema">
                     <i class="zmdi zmdi-power"></i>
                 </li>
-                <li  class="tooltips-general search-book-button" data-href="../../../searchbook.html" data-placement="bottom" title="Buscar libro">
+                <li  class="tooltips-general search-book-button" data-href="searchbook.html" data-placement="bottom" title="Buscar libro">
                     <i class="zmdi zmdi-search"></i>
                 </li>
                 <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
@@ -74,27 +66,63 @@
                 </li>
             </ul>
         </nav>
-        
-        <!--            TITULO DE LA PÁGINA        -->
-        
         <div class="container">
             <div class="page-header">
-              <h1 class="all-tittles">Sistema bibliotecario <small>Gesti&oacute;n de Credenciales</small></h1>
+              <h1 class="all-tittles">Sistema bibliotecario <small>Resultado Consulta</small></h1>
             </div>
         </div>
         
-        <!--           CONTENIDO DE LA PÁGINA        -->
+        <div class="title-flat-form title-flat-blue">Resultado de la consulta</div>
         
-        <div class="title-flat-form title-flat-blue">Formato Credencial</div>
-        
-        
+        <div class="container-fluid"  style="margin: 50px 0;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <img src="../../../assets/img/user01.png" alt="user" class="img-responsive center-box" style="max-width: 110px;">
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                   Seccion donde se ven los resultados de la busqueda de libro
+                </div>
+            </div>
+        </div>
         <div class="container-fluid">
-            <center>
-                <iframe src="../../../FORMATOCREDENCIAL.pdf" style="width:700px; height:700px;" frameborder="0"> </iframe>
-            </center>
+            
+                     <div class="col-xs-16 col-sm-8 col-sm-offset-2">
+                            <div class="group-material">
+                                <table style="width:100%">
+                                  <tr>
+                                    <th>Titulo</th>
+                                    <th>Autor</th> 
+                                    <th>Editorial</th>
+                                    <th>Año</th>
+                                    <th>Biblioteca</th>
+                                  </tr>
+                                  <tr>
+                                    <td>vectorial</td>
+                                    <td>Shaum</td> 
+                                    <td>verano</td>
+                                    <td>1995</td>
+                                    <td>Escom</td>
+                                  </tr>
+                                  <tr>
+                                    <td>matematicas</td>
+                                    <td>Silva</td> 
+                                    <td>sprinfild</td>
+                                    <td>2001</td>
+                                    <td>Esia</td>
+                                  </tr>
+                                </table>
+                            </div>
+                           
+                            <p class="text-center">
+                                <a href="Consulta.html" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller "></i> &nbsp;&nbsp; Regresar</a>
+                           
+                            </p> 
+                       </div>
+
         </div> 
     </div>
-    
-    
+
 </body>
 </html>
+
+<!--link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"-->

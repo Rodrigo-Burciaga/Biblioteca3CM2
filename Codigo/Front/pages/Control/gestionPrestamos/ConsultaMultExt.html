@@ -35,24 +35,24 @@
             </div>
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
-                    <li><a href="home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="../gestionUsuarios/home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Gestión de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="regStudent.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Estudiante</a></li>
-                            <li><a href="listStudents.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Estudiantes</a></li>
-                            <li><a href="regTeacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Docente</a></li>
-                            <li><a href="listTeacher.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Docentes</a></li>
+                            <li><a href="../gestionUsuarios/regStudent.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Estudiante</a></li>
+                            <li><a href="../gestionUsuarios/listStudents.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Estudiantes</a></li>
+                            <li><a href="../gestionUsuarios/regTeacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Docente</a></li>
+                            <li><a href="../gestionUsuarios/listTeacher.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Docentes</a></li>
                         </ul>
                     </li>
                     <li><a href="../gestionCredenciales/renovacionCredencial.html"><i class="glyphicon glyphicon-credit-card"></i>&nbsp;&nbsp; Renovaci&oacute;n de Credencial</a></li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i>&nbsp;&nbsp; Gestión de Pr&eacute;stamos <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="../gestionPrestamos/preInt.html"><i class="zmdi zmdi-bookmark zmdi-hc-fw"></i>&nbsp;&nbsp; Interno</a></li>
-                            <li><a href="../gestionPrestamos/preExt.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Externo</a></li>
-                            <li><a href="../gestionPrestamos/ConsultaPres.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Pr&eacute;stamos</a></li>
-                            <li><a href="../gestionPrestamos/ConsultaPresInt.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Interbibliotecario</a></li>
+                            <li><a href="preInt.html"><i class="zmdi zmdi-bookmark zmdi-hc-fw"></i>&nbsp;&nbsp; Interno</a></li>
+                            <li><a href="preExt.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Externo</a></li>
+                            <li><a href="ConsultaPres.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Pr&eacute;stamos</a></li>
+                            <li><a href="ConsultaPresInt.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Interbibliotecario</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -82,62 +82,86 @@
         </nav>
         <div class="container">
             <div class="page-header">
-              <h1 class="all-tittles">Sistema bibliotecario <small>Gestión de Usuarios</small></h1>
+              <h1 class="all-tittles">Sistema bibliotecario <small>Resultado Consulta Multas</small></h1>
             </div>
         </div>
         
-        <div class="title-flat-form title-flat-blue">Registrar un nuevo administrador</div>
+        <div class="title-flat-form title-flat-blue">Resultado de la Consulta de Multas</div>
         
         <div class="container-fluid"  style="margin: 50px 0;">
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-3">
-                    <img src="assets/img/user01.png" alt="user" class="img-responsive center-box" style="max-width: 110px;">
+                    <img src="../../../assets/img/user01.png" alt="user" class="img-responsive center-box" style="max-width: 110px;">
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                   Bienvenido a la sección para registrar nuevos administradores del sistema, debes de llenar todos los campos del siguiente formulario para registrar un administrador.
+                   Seccion donde aparecen los resultados de la búsqueda de multas
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            
-                     <div class="col-xs-16 col-sm-8 col-sm-offset-2">
+
+                     <div class="group-material">
+                        <input type="text" class="material-control tooltips-general input-check-user" placeholder="XXX" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" title="Usuario">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Usuario</label>
+                   </div>
+
+                    <div class="group-material">
+                        <input type="text" class="material-control tooltips-general input-check-user" placeholder="XXX" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" title="Boleta del Usuario">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Boleta del Usuario</label>
+                   </div>
+
+
+                   <div class="group-material">
+                        <input type="text" class="material-control tooltips-general input-check-user" placeholder="ESCOM" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" title="Escuela Procedencia">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Escuela de Procedencia</label>
+                   </div>
+
+                <br><br>
+                    <div class="group-material">
+                        <label>Multas Pendientes</label>
+                   </div>
+
+                   
+
                             <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="#Empleado IPN" required="" maxlength="70" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe el número de empleado">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Número de empleado IPN</label>
+                                <table style="width:100%">
+                                  <tr>
+                                    <th>ID Multa</th>
+                                    <th>Monto</th> 
+                                    <th>Tipo</th>
+                                    <th>Fecha de Expedición</th>
+                                  </tr>
+                                  <tr>
+                                    <td>XXX</td>
+                                    <td>$XXX.XX</td> 
+                                    <td>Fisico</td>
+                                    <td>XXXXX</td>
+                                  </tr>
+                                  <tr>
+                                    <td>XXX</td>
+                                    <td>$XXX.XX</td> 
+                                    <td>Perdida</td>
+                                    <td>XXXXX</td>
+                                  </tr>
+                                </table>
                             </div>
-                           <div class="group-material">
-                                <input type="text" class="material-control tooltips-general input-check-user" placeholder="Nombre de usuario" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" title="Escribe un nombre de usuario sin espacios, que servira para iniciar sesión">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Nombre de usuario</label>
-                           </div>
-                            <div class="group-material">
-                                <input type="email" class="material-control tooltips-general" placeholder="E-mail"  maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el Email del administrador">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Email</label>
-                            </div>
-                            <div class="group-material">
-                                <input type="password" class="material-control tooltips-general" placeholder="Contraseña" required="" maxlength="200" data-toggle="tooltip" data-placement="top" title="Escribe una contraseña">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Contraseña</label>
-                            </div>
-                           <div class="group-material">
-                                <input type="password" class="material-control tooltips-general" placeholder="Repite la contraseña" required="" maxlength="200" data-toggle="tooltip" data-placement="top" title="Repite la contraseña">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Repetir contraseña</label>
-                           </div>
+                           
                             <p class="text-center">
-                                <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
-                                <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
+                                <a href="preExt.html" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Regresar</a>
+                                <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Impimir</button>
                             </p> 
                        </div>
 
         </div> 
     </div>
+
 </body>
 </html>
+
+<!--link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"-->

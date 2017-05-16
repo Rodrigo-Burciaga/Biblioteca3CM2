@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,24 +35,24 @@
             </div>
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
-                    <li><a href="home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="../gestionUsuarios/home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Gestión de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="regStudent.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Estudiante</a></li>
-                            <li><a href="listStudents.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Estudiantes</a></li>
-                            <li><a href="regTeacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Docente</a></li>
-                            <li><a href="listTeacher.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Docentes</a></li>
+                            <li><a href="../gestionUsuarios/regStudent.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Estudiante</a></li>
+                            <li><a href="../gestionUsuarios/listStudents.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Estudiantes</a></li>
+                            <li><a href="../gestionUsuarios/regTeacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Docente</a></li>
+                            <li><a href="../gestionUsuarios/listTeacher.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Docentes</a></li>
                         </ul>
                     </li>
                     <li><a href="../gestionCredenciales/renovacionCredencial.html"><i class="glyphicon glyphicon-credit-card"></i>&nbsp;&nbsp; Renovaci&oacute;n de Credencial</a></li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i>&nbsp;&nbsp; Gestión de Pr&eacute;stamos <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="../gestionPrestamos/preInt.html"><i class="zmdi zmdi-bookmark zmdi-hc-fw"></i>&nbsp;&nbsp; Interno</a></li>
-                            <li><a href="../gestionPrestamos/preExt.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Externo</a></li>
-                            <li><a href="../gestionPrestamos/ConsultaPres.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Pr&eacute;stamos</a></li>
-                            <li><a href="../gestionPrestamos/ConsultaPresInt.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Interbibliotecario</a></li>
+                            <li><a href="preInt.html"><i class="zmdi zmdi-bookmark zmdi-hc-fw"></i>&nbsp;&nbsp; Interno</a></li>
+                            <li><a href="preExt.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Externo</a></li>
+                            <li><a href="ConsultaPres.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Pr&eacute;stamos</a></li>
+                            <li><a href="ConsultaPresInt.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Interbibliotecario</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -83,39 +82,55 @@
         </nav>
         <div class="container">
             <div class="page-header">
-              <h1 class="all-tittles">Sistema bibliotecario <small>Inicio</small></h1>
+              <h1 class="all-tittles">Sistema bibliotecario <small>Gestión de préstamos</small></h1>
             </div>
         </div>
         
-        <div class="container">
-            <img src="../../../assets/img/user01.png" alt="user" class="img-responsive center-box" style="max-width: 145px;">
-        </div>
         
-       <h2>Bienvenido Menganito Sutanito</h2>
-       
-<div class="container">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-    	<h4><p class="bg-primary">Información de perfil</p></h4>
-    	<div class="container">
-  		<h5><p class="bg-info">APELLIDO (s).</p></h5>
-			  <div class="well well-sm">Perez Lopez</div>
-  		<h5><p class="bg-info">Nombre (s).</p></h5>
-			  <div class="well well-sm">Menganito Sutanito</div>
-		<h5><p class="bg-info">Rol de Empleado.</p></h5>
-			  <div class="well well-sm">Bibliotecario</div>
-  		<h5><p class="bg-info">Matricula de usuario.</p></h5>
-			  <div class="well well-sm">XXXX</div>
-		<h5><p class="bg-info">Fecha de Admisión</p></h5>
-			  <div class="well well-sm">12/04/17</div>
+        <div class="container-fluid"  style="margin: 50px 0;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <img src="../../../assets/img/user01.png" alt="user" class="img-responsive center-box" style="max-width: 110px;">
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                   Bienvenido a la sección para registrar préstamos, devoluciones, multas y reposiciones.
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            
+             <div class="col-xs-16 col-sm-8 col-sm-offset-2">
+                    <div class="group-material">
+                        <input type="text" class="material-control" placeholder="Ej: 1233" required="" maxlength="70" pattern="\d+" data-placement="top" title="Escribe el número de empleado">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Ingrese Id de usuario</label>
+                    </div>
 
-    </div>
-    <div class="panel-body">Si tu información no es correcta,por favor dirigete con el el encargado de empleados</div>
-  </div>
-</div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary text-center">Verificar</button>
+                    </div> 
+                    <div class="group-material" id="action-menu">
+                         <h2>Menú de acción</h2>
+                        <hr>
+                        <a href="prestamo.html" class="btn btn-primary text-center">Préstamo</a>
+                        <a href="prestamoMaterial.html" class="btn btn-primary text-center">Préstamo TT y audiovisuales</a>
+                        <a href="devolInt.html" class="btn btn-primary text-center">Devoluciones</a>
+                        <a href="Prestamo Interbibliotecario.html" class="btn btn-primary text-center">Préstamo Interbibliotecario</a>
+                    </div>
+                    <div class="group-material">
+                         <h2>Devoluciones atrasadas</h2>
+                        <hr>
+                        <a href="devolInt.html" class="btn btn-primary text-center">Devolver libros</a>          
+                    </div>
+                     <div class="group-material">
+                         <h2>Tienes multas pendientes</h2>
+                        <hr>
+                        <a href="ConsultaMult.html" class="btn btn-primary text-center">Consultar multas</a>
+                         <a href="PagarMult.html" class="btn btn-primary text-center">Pagar multas</a>
+                    </div>
 
+        </div> 
     </div>
-    </div>
-   
 </body>
 </html>
