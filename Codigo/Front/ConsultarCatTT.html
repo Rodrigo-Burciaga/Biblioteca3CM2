@@ -41,8 +41,8 @@
                         <ul class="list-unstyled">
                             <li><a href="ConsultarLibro.html">Libros</a></li>
                             <li><a href="ConsultarTT.html"> TT</a></li>
-                            <li><a href="ConsultarEqAudio.html">Equipo audiovisual</a></li>
-                            <li><a href="ConsultarEqComp.html">Equipo de computo</a></li>
+                             <li><a href="RegistrarEqAudio.html">Equipo audiovisual</a></li>
+                            <li><a href="RegistrarEqComp.html">Equipo de computo</a></li>
                         </ul>
 
                         <div class="dropdown-menu-button">&nbsp;&nbsp; MODIFICAR O ELIMINAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
@@ -101,7 +101,7 @@
         <div class="container-fluid"  style="margin: 50px 0;">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                  Ingrese el identificador del tt que desea consultar con el formato correspondiente
+                  Ingrese el Número de tt que desea consultar con el formato correspondiente
                 </div>
             </div>
         </div>
@@ -110,10 +110,10 @@
             
                      <div class="col-xs-16 col-sm-8 col-sm-offset-2">
                             <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="#Identificador" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" tittle="Ingrese el identificador del TT que desea consultar">
+                                <input type="text" class="material-control tooltips-general" placeholder="#TT" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" tittle="Ingrese el identificador del TT que desea consultar">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>                                
-                                <label>Identificador de TT</label>
+                                <label>Número de TT</label>
                                 <br>
                                 <p class="text-center">
                                     <button type="submit" class="btn btn-primary"> &nbsp;&nbsp; Consultar </button>
@@ -123,14 +123,14 @@
 
                             <div class="table-responsive">
                               <table class="table table-striped">
-                              <caption align="center"><h3>Catalogo De TT</h3></caption>
+                              <caption align="center"><h3 class="text-center">TT #XXX</h3></caption>
                                 <tbody>
                                     <tr>
                                         <th>Datos</th>
                                         <th> Informacion</th>
                                     </tr>
                                     <tr>
-                                        <td>Identificador</td>
+                                        <td>Número de TT</td>
                                         <td> </td>
                                     </tr>
                                     <tr>
@@ -138,18 +138,14 @@
                                         <td> </td>
                                     </tr>
                                     <tr>
-                                        <td>Autor</td>
+                                        <td>Autor(es)</td>
                                         <td> </td>
                                     </tr>
                                     <tr>
-                                        <td>Fecha de Publicacion</td>
-                                        <td> </td>
+                                        <td>Fecha de Presentación</td>
+                                        <td> </td> 
                                     </tr><tr>
-                                        <td>Numero de Paginas</td>
-                                        <td> </td>
-                                    </tr>  
-                                    </tr><tr>
-                                        <td>Directores</td>
+                                        <td>Director(es)</td>
                                         <td> </td>
                                     </tr>                              
                                 </tbody>
@@ -158,48 +154,9 @@
 
 
                             <p class="text-center">
-                                <button type="submit" class="btn btn-primary" onclick="self.location.href='ModificarTT.html'"> &nbsp;&nbsp; Modificar Catalogo</button>
+                                <button type="submit" class="btn btn-primary" onclick="self.location.href='ModificarTT.html'"> &nbsp;&nbsp; Modificar TT</button>
                             </p>
 
-                            <br><br><hr width="100%" size="20px">
-
-                            <div class="table-responsive">
-                              <table class="table table-striped">
-                              <caption align="center"><h3>Seleccionar TT</h3></caption>
-                                <tbody>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Estado</th>
-                                        <th>Seleccion</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td> </td>
-                                        <td> <input name="sel" type="radio" align="center"/> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td> </td>
-                                        <td> <input name="sel" type="radio" align="center"/> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td> </td>
-                                        <td> <input name="sel" type="radio" align="center"/> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td> </td>
-                                        <td> <input name="sel" type="radio" align="center"/> </td>
-                                    </tr>                             
-                                </tbody>
-                              </table>
-                            </div>
- 
-
-                            <p class="text-center">
-                                <button type="submit" class="btn btn-primary" onclick="self.location.href='EliminarTT.html'"> &nbsp;&nbsp; Eliminar TT Seleccionado</button>
-                            </p> 
 
                     </div>
 

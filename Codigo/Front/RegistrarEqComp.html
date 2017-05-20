@@ -41,8 +41,8 @@
                         <ul class="list-unstyled">
                             <li><a href="ConsultarLibro.html">Libros</a></li>
                             <li><a href="ConsultarTT.html"> TT</a></li>
-                            <li><a href="ConsultarEqAudio.html">Equipo audiovisual</a></li>
-                            <li><a href="ConsultarEqComp.html">Equipo de computo</a></li>
+                             <li><a href="RegistrarEqAudio.html">Equipo audiovisual</a></li>
+                            <li><a href="RegistrarEqComp.html">Equipo de computo</a></li>
                         </ul>
 
                         <div class="dropdown-menu-button">&nbsp;&nbsp; MODIFICAR O ELIMINAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
@@ -95,7 +95,7 @@
             </div>
         </div>
         
-        <div class="title-flat-form title-flat-blue">Registrar de Equipo Audiovisual</div>
+        <div class="title-flat-form title-flat-blue">Registrar Equipo de Cómputo</div>
         
         <div class="container-fluid"  style="margin: 50px 0;">
             <div class="row">
@@ -108,41 +108,68 @@
           <div class="container-fluid">
             
                      <div class="col-xs-16 col-sm-8 col-sm-offset-2">
+
+
+                        <h2>Computadora IPN-ESCOM #XXX</h2>
+                        <p>*********El nombre de la computadora se traerá automáticamente, si hay dos computadoras registradas deberá aparecer IPN-ESCOM #3</p><br>
+
                             <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="#Numero de Serie" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" >
+                                <input type="text" class="material-control tooltips-general" placeholder="#Numero de Serie Monitor" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" >
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
-                                <label>Numero de serie</label>
+                                <label>Numero de serie Monitor</label>
                             </div>
 
                             <div class="group-material">
-                                <input type="text" class="material-control tooltips-general input-check-user" placeholder="Marca" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" >
+                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Precio Monitor" required="" maxlength="20" min="1"  data-toggle="tooltip" data-placement="top">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
-                                <label>Marca</label>
+                                <label>Precio Monitor</label>
+                           </div>
+
+                             <div class="group-material">
+                                <input type="text" class="material-control tooltips-general" placeholder="#Numero de Serie CPU" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" >
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Numero de serie CPU</label>
+                            </div>
+
+                            <div class="group-material">
+                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Precio CPU" required="" maxlength="20" min="1"  data-toggle="tooltip" data-placement="top">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Precio CPU</label>
                            </div>
 
                            <div class="group-material">
-                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Precio" required="" maxlength="20" min="1"  data-toggle="tooltip" data-placement="top">
+                                <input type="text" class="material-control tooltips-general" placeholder="#Numero de Serie teclado" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" >
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
-                                <label>Precio</label>
+                                <label>Numero de serie Teclado</label>
+                            </div>
+
+                            <div class="group-material">
+                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Precio Teclado" required="" maxlength="20" min="1"  data-toggle="tooltip" data-placement="top">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Precio Teclado</label>
+                           </div>
+
+                             <div class="group-material">
+                                <input type="text" class="material-control tooltips-general" placeholder="#Numero de Serie Mouse" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" >
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Numero de serie Mouse</label>
+                            </div>
+
+                            <div class="group-material">
+                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Precio Mouse" required="" maxlength="20" min="1"  data-toggle="tooltip" data-placement="top">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Precio Mouse</label>
                            </div>
 
 
-                           <div class="group-material">
-                                <input type="text" class="material-control tooltips-general input-check-user" placeholder="Modelo" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" >
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Modelo</label>
-                           </div>                            
-
-                           <div class="group-material">
-                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Cantidad a Registrar" required="" maxlength="20" min="1"  data-toggle="tooltip" data-placement="top">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Cantidad a registrar</label>
-                           </div>
 
                             <p class="text-center">
                                 <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>

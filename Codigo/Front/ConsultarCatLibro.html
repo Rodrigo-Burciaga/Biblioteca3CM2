@@ -41,8 +41,8 @@
                         <ul class="list-unstyled">
                             <li><a href="ConsultarLibro.html">Libros</a></li>
                             <li><a href="ConsultarTT.html"> TT</a></li>
-                            <li><a href="ConsultarEqAudio.html">Equipo audiovisual</a></li>
-                            <li><a href="ConsultarEqComp.html">Equipo de computo</a></li>
+                             <li><a href="RegistrarEqAudio.html">Equipo audiovisual</a></li>
+                            <li><a href="RegistrarEqComp.html">Equipo de computo</a></li>
                         </ul>
 
                         <div class="dropdown-menu-button">&nbsp;&nbsp; MODIFICAR O ELIMINAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
@@ -138,7 +138,7 @@
                                         <td> </td>
                                     </tr>
                                     <tr>
-                                        <td>Autor</td>
+                                        <td>Autor(es)</td>
                                         <td> </td>
                                     </tr>
                                     <tr>
@@ -146,19 +146,27 @@
                                         <td> </td>
                                     </tr>
                                     <tr>
-                                        <td>Fecha de Publicacion</td>
+                                        <td>Fecha de Publicación</td>
                                         <td> </td>
                                     </tr><tr>
-                                        <td>Numero de Paginas</td>
+                                        <td>Numero de Páginas</td>
                                         <td> </td>
                                     </tr>     <tr>
                                         <td>Existencias</td>
                                         <td> </td>
-                                    </tr>    
+                                    </tr> 
+                                    <tr>
+                                        <td>Edición</td>
+                                        <td> </td>
+                                    </tr>       
                                      <tr>
                                         <td>Precio</td>
                                         <td> </td>
-                                    </tr>                            
+                                    </tr>
+                                     <tr>
+                                        <td>Existencias</td>
+                                        <td> </td>
+                                    </tr>                             
                                 </tbody>
                               </table>
                             </div>
@@ -182,7 +190,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td> </td>
-                                        <td> <input name="sel" type="radio" align="center"/> </td>
+                                        <td> <input name="sel" type="radio" align="center"  /> </td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -205,7 +213,8 @@
  
 
                             <p class="text-center">
-                                <button type="submit" class="btn btn-primary" onclick="self.location.href='EliminarLibro.html'"> &nbsp;&nbsp; Eliminar Libro Seleccionado</button>
+                            <button type="submit" class="btn btn-primary" onclick="self.location.href='ModificarEstado.html'"> &nbsp;&nbsp; Modificar Libro Seleccionado</button>
+                                <button type="submit" class="btn btn-danger" onclick="self.location.href='EliminarLibro.html'"> &nbsp;&nbsp; Eliminar Libro Seleccionado</button>
                             </p> 
 
                     </div>

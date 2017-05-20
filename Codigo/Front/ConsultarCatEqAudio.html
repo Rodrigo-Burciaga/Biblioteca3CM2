@@ -41,8 +41,8 @@
                         <ul class="list-unstyled">
                             <li><a href="ConsultarLibro.html">Libros</a></li>
                             <li><a href="ConsultarTT.html"> TT</a></li>
-                            <li><a href="ConsultarEqAudio.html">Equipo audiovisual</a></li>
-                            <li><a href="ConsultarEqComp.html">Equipo de computo</a></li>
+                             <li><a href="RegistrarEqAudio.html">Equipo audiovisual</a></li>
+                            <li><a href="RegistrarEqComp.html">Equipo de computo</a></li>
                         </ul>
 
                         <div class="dropdown-menu-button">&nbsp;&nbsp; MODIFICAR O ELIMINAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
@@ -101,7 +101,7 @@
         <div class="container-fluid"  style="margin: 50px 0;">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                  Ingrese el identificador del eqipo audiovisual que desea consultar con el formato correspondiente
+                  Ingrese el identificador o título del equipo audiovisual que desea consultar con el formato correspondiente
                 </div>
             </div>
         </div>
@@ -110,10 +110,22 @@
             
                      <div class="col-xs-16 col-sm-8 col-sm-offset-2">
                             <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="#Identificador" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" tittle="Ingrese el identificador del equipo audiovisual que desea consultar">
+                                <input type="number" class="material-control tooltips-general" placeholder="#Identificador" required="" min="1" data-toggle="tooltip" data-placement="top" tittle="Ingrese el identificador del equipo audiovisual que desea consultar">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>                                
-                                <label>Identificador</label>
+                                <label>Id Audiovisual</label>
+                                <br>
+                                <p class="text-center">
+                                    <button type="submit" class="btn btn-primary"> &nbsp;&nbsp; Consultar </button>
+                                </p>
+
+                            </div>
+
+                            <div class="group-material">
+                                <input type="text" class="material-control tooltips-general" placeholder="Título del Material Audiovisual" required="" maxlength="70" data-toggle="tooltip" data-placement="top">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>                                
+                                <label>Título</label>
                                 <br>
                                 <p class="text-center">
                                     <button type="submit" class="btn btn-primary"> &nbsp;&nbsp; Consultar </button>
@@ -130,7 +142,7 @@
                                         <th> Informacion</th>
                                     </tr>
                                     <tr>
-                                        <td>Identificador</td>
+                                        <td>ID</td>
                                         <td> </td>
                                     </tr>
                                     <tr>
@@ -138,7 +150,7 @@
                                         <td> </td>
                                     </tr>
                                     <tr>
-                                        <td>Autor</td>
+                                        <td>Autor(es)</td>
                                         <td> </td>
                                     </tr>
                                     <tr>
@@ -155,6 +167,10 @@
                                     </tr>  
                                      <tr>
                                         <td>Precio</td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tipo</td>
                                         <td> </td>
                                     </tr>                              
                                 </tbody>
@@ -175,26 +191,31 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Estado</th>
-                                        <th>Seleccion</th>
+                                        <th>Disponibilidad</th>
+                                        <th>Selección</th>
                                     </tr>
                                     <tr>
                                         <td>1</td>
                                         <td> </td>
-                                        <td> <input name="sel" type="radio" align="center"/> </td>
+                                        <td></td>
+                                        <td> <input name="sel" type="radio" align="center" checked="true" /> </td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td> </td>
+                                        <td></td>
                                         <td> <input name="sel" type="radio" align="center"/> </td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
                                         <td> </td>
+                                        <td></td>
                                         <td> <input name="sel" type="radio" align="center"/> </td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
                                         <td> </td>
+                                        <td></td>
                                         <td> <input name="sel" type="radio" align="center"/> </td>
                                     </tr>                             
                                 </tbody>
@@ -203,7 +224,8 @@
  
 
                             <p class="text-center">
-                                <button type="submit" class="btn btn-primary" onclick="self.location.href='EliminarEqAudio.html'"> &nbsp;&nbsp; Eliminar Eq Audiovisual Seleccionado</button>
+                                <button type="submit" class="btn btn-primary" onclick="self.location.href='ModificarAudiovisual.html'"> &nbsp;&nbsp; Modificar Audiovisual Seleccionado</button>
+                                <button type="submit" class="btn btn-danger" onclick="self.location.href='EliminarEqAudio.html'"> &nbsp;&nbsp; Eliminar Eq Audiovisual Seleccionado</button>
                             </p> 
 
                     </div>

@@ -41,8 +41,8 @@
                         <ul class="list-unstyled">
                             <li><a href="ConsultarLibro.html">Libros</a></li>
                             <li><a href="ConsultarTT.html"> TT</a></li>
-                            <li><a href="ConsultarEqAudio.html">Equipo audiovisual</a></li>
-                            <li><a href="ConsultarEqComp.html">Equipo de computo</a></li>
+                             <li><a href="RegistrarEqAudio.html">Equipo audiovisual</a></li>
+                            <li><a href="RegistrarEqComp.html">Equipo de computo</a></li>
                         </ul>
 
                         <div class="dropdown-menu-button">&nbsp;&nbsp; MODIFICAR O ELIMINAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
@@ -95,12 +95,12 @@
             </div>
         </div>
         
-        <div class="title-flat-form title-flat-blue">Registrar de Equipo Audiovisual</div>
+        <div class="title-flat-form title-flat-blue">Registrar Equipo Audiovisual</div>
         
         <div class="container-fluid"  style="margin: 50px 0;">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                  Ingrese los campos requeridos para el registro del Libro
+                  Ingrese los campos requeridos para el registro del equipo Audiovisual
                 </div>
             </div>
         </div>
@@ -108,13 +108,7 @@
           <div class="container-fluid">
             
                      <div class="col-xs-16 col-sm-8 col-sm-offset-2">
-                            <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="#identificador" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" >
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Identificador</label>
-                            </div>
-
+                            
                             <div class="group-material">
                                 <input type="text" class="material-control tooltips-general input-check-user" placeholder="Titulo" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" >
                                 <span class="highlight"></span>
@@ -123,30 +117,15 @@
                            </div>
 
 
-                           <div class="group-material">
-                                <input type="text" class="material-control tooltips-general input-check-user" placeholder="Autor" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" >
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Autor 1</label>
+                           <div class="text-center " style="padding-bottom: 10px;">
+                            <button type="button" class="btn btn-danger btn-block" onclick="añadirA()" id="btnA">Añadir Autor(es)</button>
                            </div>
 
-                           <div class="container-fluid">
-                               <div class="group-material">
-                                    <input type="text" class="material-control tooltips-general input-check-user" placeholder="Autor2" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" >
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>Autor 2</label>
-                               </div>
 
+                           <div id="appendA"  style="padding-top: 20px;">   
+                           </div>
 
-                               <div class="group-material">
-                                    <input type="text" class="material-control tooltips-general input-check-user" placeholder="Autor3" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" >
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>Autor 3</label>
-                               </div>
-
-                            </div>
+                          
 
                            <div class="group-material">
                                 <input type="number" class="material-control tooltips-general input-check-user" placeholder="Fecha de Publicacion" required="" maxlength="20" min="1900" max="2017"  data-toggle="tooltip" data-placement="top">
@@ -156,7 +135,7 @@
                            </div>
 
                             <div class="group-material">
-                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Numero Paginas" required="" maxlength="20" min="1"   data-toggle="tooltip" data-placement="top">
+                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Duración del Audiovisual" required="" maxlength="20" min="1"   data-toggle="tooltip" data-placement="top">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Duracion</label>
@@ -176,6 +155,17 @@
                                 <label>Cantidad a registrar</label>
                            </div>
 
+                           <div class="group-material">
+                                <select name="tipo"  class="material-control tooltips-general input-check-user" data-toggle="tooltip" data-placement="top">
+                                    <option>Tipo de Material Audiovisual</option>
+                                    <option value="1" >-Libro</option>
+                                    <option value="2">-Documental</option>
+                                </select>
+                                
+                           </div>
+
+                           <p class="text-center">****  Al registrar comprobará si no existe algun título con el mismo nombre, de lo contrario se notificará</p>
+
                             <p class="text-center">
                                 <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
                                 <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Registrar</button>
@@ -186,5 +176,33 @@
 
 
     </div>
+
+<script type="text/javascript">
+
+var numberA=0;//inicializa el numero de autores
+var numberD=0;
+
+    function añadirA(){
+        
+        
+        if($("#autor1").length == 0 ){
+            var agregar= " <div class='group-material'><input type='text' class='material-control tooltips-general input-check-user' placeholder='Autor 1' required='' maxlength='20' pattern='[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}'' data-toggle='tooltip' data-placement='top' name='autor1' id='autor1'><span class='highlight'></span><span class='bar'></span><label>Autor 1</label></div>";
+        
+            $("#appendA").append(agregar);
+            numberA+=1;
+        } else{
+                numberA+=1;
+                
+
+                if (numberA < 5) {
+                    var agregar= "<div class='group-material'><input type='text' class='material-control tooltips-general input-check-user' placeholder='Autor "+numberA+"' required='' maxlength='20' pattern='[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}'' data-toggle='tooltip' data-placement='top' name='autor"+numberA+"' id='autor"+numberA+" '><span class='highlight'></span><span class='bar'></span><label>Autor "+numberA+"</label></div>";
+                        $("#appendA").append(agregar);
+                }
+                else{
+                    alert("No se pueden agregar más Autores");
+                }   
+        }
+    }
+</script>
 </body>
 </html>

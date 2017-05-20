@@ -41,8 +41,8 @@
                         <ul class="list-unstyled">
                             <li><a href="ConsultarLibro.html">Libros</a></li>
                             <li><a href="ConsultarTT.html"> TT</a></li>
-                            <li><a href="ConsultarEqAudio.html">Equipo audiovisual</a></li>
-                            <li><a href="ConsultarEqComp.html">Equipo de computo</a></li>
+                             <li><a href="RegistrarEqAudio.html">Equipo audiovisual</a></li>
+                            <li><a href="RegistrarEqComp.html">Equipo de computo</a></li>
                         </ul>
 
                         <div class="dropdown-menu-button">&nbsp;&nbsp; MODIFICAR O ELIMINAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
@@ -92,7 +92,7 @@
         </nav>
         <div class="container">
             <div class="page-header">
-              <h1 class="all-tittles">Control de Inventario</h1>
+              <h1 class="all-tittles ">Control de Inventario</h1>
             </div>
         </div>
         
@@ -109,6 +109,22 @@
           <div class="container-fluid">
             
                      <div class="col-xs-16 col-sm-8 col-sm-offset-2">
+                     		<div>
+                     		<p>***El input de abajo aparecerá de primera opción unicamente si ha sido registrado anteriormente el ISBN</p>	
+                     		</div>
+                     		</br>
+                     		<div class="group-material">
+                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Cantidad de Libros a Registrar" required="" maxlength="20" min="1"  data-toggle="tooltip" data-placement="top">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Cantidad a registrar</label>
+                           </div>
+
+                            <div>
+                     		<p>***Los datos que aparecen a continuación deberán ser llenados automáticamente si el libro ISBN ha sido registrado anteriormente, de lo contrario el usuario tendra que llenarlos manualmente, Los autores por ende deberán aparecer automáticamente si ya se ha registrado el libro</p>	
+                     		</div>
+                     		</br>
+
                             <div class="group-material">
                                 <input type="text" class="material-control tooltips-general" placeholder="#ISBN" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" >
                                 <span class="highlight"></span>
@@ -123,31 +139,18 @@
                                 <label>Titulo</label>
                            </div>
 
+                           <div class="text-center">
 
-                           <div class="group-material">
-                                <input type="text" class="material-control tooltips-general input-check-user" placeholder="Autor" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" >
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Autor 1</label>
+                           	<button type="button" class="btn btn-danger" onclick="añadirA()" id="btnA">Añadir Autor(es)</button>
                            </div>
 
-                           <div class="container-fluid">
-                               <div class="group-material">
-                                    <input type="text" class="material-control tooltips-general input-check-user" placeholder="Autor2" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" >
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>Autor 2</label>
-                               </div>
+                           <div class="container-fluid" id="appendA">
+                           	
+                           </div>
 
 
-                               <div class="group-material">
-                                    <input type="text" class="material-control tooltips-general input-check-user" placeholder="Autor3" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" >
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>Autor 3</label>
-                               </div>
-
-                            </div>
+                           
+                           
 
                            <div class="group-material">
                                 <input type="text" class="material-control tooltips-general input-check-user" placeholder="Editorial" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top">
@@ -160,7 +163,7 @@
                                 <input type="number" class="material-control tooltips-general input-check-user" placeholder="Fecha de Publicacion" required="" maxlength="20" min="1900" max="2017"  data-toggle="tooltip" data-placement="top">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
-                                <label>Fecha de publicacion</label>
+                                <label>Fecha de publicación</label>
                            </div>
 
                             <div class="group-material">
@@ -170,8 +173,17 @@
                                 <label>Numero de Paginas</label>
                            </div>
 
+
+                            <div class="group-material">
+                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Edición" required min="1"
+                                max ="30" data-toggle="tooltip" data-placement="top">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Edición</label>
+                           </div>
+
                            <div class="group-material">
-                                <input type="number" class="material-control tooltips-general input-check-user" placeholder="Precio" required="" maxlength="20" min="1"  data-toggle="tooltip" data-placement="top">
+                                <input type="text" class="material-control tooltips-general input-check-user" placeholder="Precio" required="" maxlength="20" pattern="^[0-9]{1,9}(([.]?[0-9]{0,2})?)$" data-toggle="tooltip" data-placement="top">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Precio</label>
@@ -194,5 +206,35 @@
 
 
     </div>
+
+
+<script type="text/javascript">
+
+var numberA=0;//inicializa el numero de autores
+
+	function añadirA(){
+		
+		
+		if($("#autor1").length == 0 ){
+			var agregar= " <div class='group-material'><input type='text' class='material-control tooltips-general input-check-user' placeholder='Autor' required='' maxlength='20' pattern='[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}'' data-toggle='tooltip' data-placement='top' name='autor1' id='autor1'><span class='highlight'></span><span class='bar'></span><label>Autor 1</label></div>";
+		
+			$("#appendA").append(agregar);
+			numberA+=1;
+		} else{
+				numberA+=1;
+				
+
+				if (numberA < 5) {
+					var agregar= "<div class='group-material'><input type='text' class='material-control tooltips-general input-check-user' placeholder='Autor' required='' maxlength='20' pattern='[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}'' data-toggle='tooltip' data-placement='top' name='autor"+numberA+"' id='autor"+numberA+"	'><span class='highlight'></span><span class='bar'></span><label>Autor "+numberA+"</label></div>";
+						$("#appendA").append(agregar);
+				}
+				else{
+					alert("No se pueden agregar más Autores");
+				}	
+		}
+
+
+	}
+</script>
 </body>
 </html>

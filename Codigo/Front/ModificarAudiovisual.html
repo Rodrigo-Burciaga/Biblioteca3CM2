@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>COntrol de Inventario</title>
+    <title>Control de Inventario</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/book.ico" />
@@ -37,12 +37,12 @@
                 <ul class="list-unstyled">
                     <li><a href="Inventario.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li>
-                        <div class="dropdown-menu-button">&nbsp;&nbsp; REGISTRAR  <i class="zmdi  <div class="dropdown-menu-button">&nbsp;&nbsp; REGISTRAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                         <div class="dropdown-menu-button">&nbsp;&nbsp; REGISTRAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
                             <li><a href="ConsultarLibro.html">Libros</a></li>
                             <li><a href="ConsultarTT.html"> TT</a></li>
-                            <li><a href="ConsultarEqAudio.html">Equipo audiovisual</a></li>
-                            <li><a href="ConsultarEqComp.html">Equipo de computo</a></li>
+                             <li><a href="RegistrarEqAudio.html">Equipo audiovisual</a></li>
+                            <li><a href="RegistrarEqComp.html">Equipo de computo</a></li>
                         </ul>
 
                         <div class="dropdown-menu-button">&nbsp;&nbsp; MODIFICAR O ELIMINAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
@@ -59,6 +59,7 @@
                             <li><a href="EscanearEqAudio.html">Equipo audiovisual</a></li>
                             <li><a href="EscanearEqComp.html">Equipo de computo</a></li>
                         </ul>
+
 
 
                     </li>
@@ -95,12 +96,11 @@
             </div>
         </div>
         
-        <div class="title-flat-form title-flat-blue">Registrar Equipo Audiovisual</div>
+        <div class="title-flat-form title-flat-blue">Editar Equipo Audiovisual</div>
         
         <div class="container-fluid"  style="margin: 50px 0;">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                  Ingrese el identificador del equipo audiovisual que desea registrar con el formato correspondiente
                 </div>
             </div>
         </div>
@@ -108,17 +108,43 @@
           <div class="container-fluid">
             
                      <div class="col-xs-16 col-sm-8 col-sm-offset-2">
-                            <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="#Identificador" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" tittle="Ingrese el identificador del equipo audiovisual que desea registrar">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Identificador</label>
+
+                            <div class="table-responsive">
+                              <table class="table table-striped">
+                              <caption align="center"><h3>Datos de Equipo Audiovisual</h3></caption>
+                                <tbody>
+                                    <tr>
+                                        <th>Datos</th>
+                                        <th> Informacion</th>
+                                    </tr>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Titulo</td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Autor</td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Estado</td>
+                                        <td> <b>*Solamente este campo será modificable</b></td>
+                                    </tr>  
+                                    <tr>
+                                        <td>Disponibilidad</td>
+                                        <td><b>*Solamente este campo será modificable</b> </td>
+                                    </tr>                
+                                </tbody>
+                              </table>
                             </div>
 
-                            <p class="text-center">
-                                <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
 
-                                <button type="submit" class="btn btn-primary" onclick="self.location.href='RegistrarEqAudio.html'"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Continuar</button>
+                            <p class="text-center">
+                                <button type="submit" class="btn btn-primary" onclick="self.location.href='ConsultarCatEqAudio.html'"> &nbsp;&nbsp; Cancelar</button>
+                                <button type="submit" class="btn btn-primary"> &nbsp;&nbsp; Confirmar</button>
                             </p> 
 
                     </div>

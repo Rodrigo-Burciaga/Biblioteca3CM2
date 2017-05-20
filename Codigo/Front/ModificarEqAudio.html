@@ -41,8 +41,8 @@
                         <ul class="list-unstyled">
                             <li><a href="ConsultarLibro.html">Libros</a></li>
                             <li><a href="ConsultarTT.html"> TT</a></li>
-                            <li><a href="ConsultarEqAudio.html">Equipo audiovisual</a></li>
-                            <li><a href="ConsultarEqComp.html">Equipo de computo</a></li>
+                             <li><a href="RegistrarEqAudio.html">Equipo audiovisual</a></li>
+                            <li><a href="RegistrarEqComp.html">Equipo de computo</a></li>
                         </ul>
 
                         <div class="dropdown-menu-button">&nbsp;&nbsp; MODIFICAR O ELIMINAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
@@ -95,7 +95,7 @@
             </div>
         </div>
         
-        <div class="title-flat-form title-flat-blue">Modificar de Equipo Audiovisual</div>
+        <div class="title-flat-form title-flat-blue">Modificar Equipo Audiovisual</div>
         
         <div class="container-fluid"  style="margin: 50px 0;">
             <div class="row">
@@ -109,10 +109,10 @@
             
                      <div class="col-xs-16 col-sm-8 col-sm-offset-2">
                             <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="#identificador" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" >
+                                <input type="text" class="material-control tooltips-general" placeholder="#ID" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" >
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
-                                <label>Identificador</label>
+                                <label>ID</label>
                             </div>
 
                             <div class="group-material">
@@ -167,6 +167,15 @@
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Precio</label>
+                           </div>
+
+                            <div class="group-material">
+                                <select name="tipo"  class="material-control tooltips-general input-check-user" data-toggle="tooltip" data-placement="top">
+                                    <option>Tipo de Material Audiovisual</option>
+                                    <option value="1" >-Libro</option>
+                                    <option value="2">-Documental</option>
+                                </select>
+                                
                            </div>
 
                             <p class="text-center">
